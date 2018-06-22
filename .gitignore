@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/TimeSheet_v062018/bin.zip
+/TimeSheet_v062018/packages.zip
+/TimeSheet_v062018/TimeSheet_v062018_Compilado.zip

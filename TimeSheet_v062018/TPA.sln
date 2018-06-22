@@ -35,6 +35,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Comum", "04-Comum", "{3E
 		04-Comum\TFW.dll = 04-Comum\TFW.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{CBCAD88F-6CA8-46F3-8BE0-E642B79173AB}"
+	ProjectSection(SolutionItems) = preProject
+		DB\tecnun_22-06-2018.bak = DB\tecnun_22-06-2018.bak
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
