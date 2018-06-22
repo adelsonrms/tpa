@@ -1,0 +1,152 @@
+﻿@using TPA.Presentation.Util
+@using TPA.ViewModel
+@using TPA.Framework
+@using System.Web.Mvc.Html
+
+@model TPA.ViewModel.AtestadoAnexoViewModel
+
+@{
+    ViewBag.Title = "Adicionar Atestado";
+}
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            $("#@Html.IdFor(model => model.ArquivoAnexo)").change(function () {
+                $("#spFileName").text($("#@Html.IdFor(model => model.ArquivoAnexo)").val());
+            });
+        });
+    </script>
+
+
+}
+
+<h2>Adicionar Atestado</h2>
+
+<div>
+    <div class="text-right">
+        @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+    </div>
+
+</div>
+
+@using (Html.BeginForm("Adicionar", "Atestado", FormMethod.Post, new { id = "frmAtestado", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal bordered spacer">
+        <fiedset>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.ValidationSummary(false, "Erros Encontrados", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="form-group pull-right">
+
+                        <button type="submit" class="btn btn-primary  salvar" title="Salvar" data-formid="frmAtestado">Salvar</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label input-group-addon"})
+                            @Html.DropDownListFor(model => model.IdUsuario, Colecoes.GetUsuarios(null), "Escolha um funcionário", new { @class = " tfw_select2" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.ArquivoAnexo, htmlAttributes: new { @class = "control-label  input-group-addon" })
+                            <label for="@Html.IdFor(model => model.ArquivoAnexo)" id="spFileName" class="form-control">Escolha o Arquivo</label>
+                            @Html.TextBoxFor(m => m.ArquivoAnexo, new { type = "file", @class = "form-control", style = "display:none" })
+                        </div>
+                        
+                        @Html.ValidationMessageFor(model => model.ArquivoAnexo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.DataInicial, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBoxFor(model => model.DataInicial, new { @class = "form-control disabled tfw_datepicker", title = "Informe a data inicial" })
+                            <label for="@(Html.IdFor(model => model.DataInicial))" class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DataInicial, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.DataFinal, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBoxFor(model => model.DataFinal, new { @class = "form-control disabled tfw_datepicker", title = "Informe a data final" })
+                            <label for="@(Html.IdFor(model => model.DataFinal))" class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DataFinal, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.Horas, htmlAttributes: new { @class = "control-label input-group-addon"})
+                            @Html.TextBox(
+                                Html.NameFor(x => x.Horas).ToString(),
+                                (((Model != null) && ((Model.Horas ?? TimeSpan.Zero) > TimeSpan.Zero)) ? Model.Horas.Value.TimeSpanToString() : ""),
+                                htmlAttributes: new { id = Html.IdFor(x => x.Horas).ToString(), value = "", @class = "form-control tfw_timepicker", title = "Informe a quantidade de horas" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Horas, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBoxFor(model => model.Observacao, new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Observacao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+        </fiedset>
+    </div>
+
+
+}

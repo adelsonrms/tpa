@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<meta http-equiv="content-language" content="pt-br" />
+<meta name="language" content="Portuguese">
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Tecnun Projetos e Apontamentos</title>
+    @Styles.Render("~/bundles/cssbundle")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script type = 'text/javascript' >
+
+
+    </script>
+
+</head>
+<body>
+
+
+    <header>
+
+        <nav class="navbar navbar-default bg-primary navbar-fixed-top animate">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <a href='@Url.Action("Index", "Home", new { area = "" })' class="navbar-brand">
+                        <img src='@Url.Content("~/Content/Images/tecnunpeq.png")' style="width:90px; height:27px;"/>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                </div>
+
+            </div>
+        </nav>
+
+    </header>
+
+
+
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+
+    </div>
+    <hr />
+    <footer class="text-center">
+        <p>
+
+        </p>
+        <p>&copy; @DateTime.Now.Year - Tecnun</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/globalize")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquerymask")
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datatables")
+    @Scripts.Render("~/bundles/select2")
+
+    <script src="~/JsDinamico/" type="text/javascript" ></script>
+
+
+    @Scripts.Render("~/bundles/tfw")
+
+    @Scripts.Render("~/bundles/tpa")
+
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

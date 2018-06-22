@@ -1,0 +1,15 @@
+drop table tpa.__MigrationHistory
+drop table TPA.Referencia
+drop table TPA.Atividade
+drop table TPA.UserTokenCache
+drop table tpa.Feriado
+drop table TPA.PerfilAcao
+drop table TPA.UsuarioPerfil
+drop table TPA.ProjectNodeUsuario
+drop table tpa.Funcionario
+drop table TPA.Usuario
+drop table TPA.Acao
+drop table TPA.Perfil
+drop table TPA.ProjectNode
+drop table TPA.NodeLabel
+drop table TPA.TipoAtividade

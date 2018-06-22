@@ -1,0 +1,27 @@
+﻿2017-11-04
+----------------------------------------------------------------------------------------------------------------------------------------------
+caso o IISExpress perder as configurações de hhtps (perder o certificado e der ERR_ConnectionReset) usar os comandos abaixo como admin
+
+cd C:\Program Files (x86)\IIS Express
+IisExpressAdminCmd.exe setupsslUrl -url:https://localhost:44315/ -UseSelfSigned
+IisExpressAdminCmd.exe setupsslUrl -url:https://lvh.me:44315/ -UseSelfSigned
+
+==========================================================================================================================================
+
+
+
+
+
+
+2017-10-23
+----------------------------------------------------------------------------------------------------------------------------------------------
+Site		: https://timesheettecnun.azurewebsites.net/
+Servidor SQL: tecnunsql.database.windows.net.1433
+usuario		: tecnunsa
+senha		: Admdb@123
+banco		: tecnundb
+FTP		: ftp://waws-prod-sn1-141.ftp.azurewebsites.windows.net
+Usuario		: timesheettecnun\tecnun
+Senha FTP	: Admdb@123
+
+==========================================================================================================================================

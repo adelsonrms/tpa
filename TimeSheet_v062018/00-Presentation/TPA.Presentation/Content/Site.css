@@ -1,0 +1,510 @@
+﻿/*
+*************************************************************************************
+       padrão do visual studio
+*************************************************************************************
+*/
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin:auto;
+    max-width:1024px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+
+
+
+
+/*
+*************************************************************************************
+       padrão Tecnun
+*************************************************************************************
+*/
+
+.bordless
+{
+	border: none !important;
+}
+
+th.controles,
+td.controles{
+    max-width:5%;
+    width:5%;
+}
+
+
+.bordered
+{
+	-moz-border-radius: 8px; /* Para Firefox */
+	-webkit-border-radius: 8px; /*Para Safari e Chrome */
+	border-radius: 8px; /* Para Opera 10.5+*/
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;
+}
+
+
+.bordered.spacer,
+.bordered > .spacer{
+    padding-top: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.margemDireita
+{
+    margin-right:10px;
+}
+
+
+.sp-vertical
+{
+    margin-top:20px;
+}
+
+.sp-vertical-5
+{
+    margin-top:5px;    
+}
+
+.sp-vertical-10
+{
+    margin-top:10px;    
+}
+
+
+
+.sp-vertical-20
+{
+    margin-top:20px;    
+}
+
+
+.sp-vertical-30
+{
+    margin-top:30px;    
+}
+
+
+.laranja
+{
+    color: #e46c0a;
+}
+
+.azul
+{
+    color: #17375e;
+}
+
+.laranjabg
+{
+    background-color: #e46c0a;
+}
+
+.azulbg
+{
+    background-color: #17375e;
+}
+
+
+.removeBtnContainer
+{
+    padding:0px;
+    margin:0px;
+    margin-bottom:10px;
+}
+
+
+/*
+*************************************************************************************
+       customização datatables
+*************************************************************************************
+*/
+
+table.dataTable.tfw_grid thead .sorting:after, 
+table.dataTable.tfw_grid thead .sorting_asc:after, 
+table.dataTable.tfw_grid thead .sorting_desc:after, 
+table.dataTable.tfw_grid thead .sorting_asc_disabled:after, 
+table.dataTable.tfw_grid thead .sorting_desc_disabled:after {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: block;
+    font-family: 'FontAwesome';
+    opacity: 0.5;
+}
+
+table.dataTable.tfw_grid thead th.sorting:after {
+    content: "\f0dc";
+    color: #ddd;
+    font-size: 0.8em;
+    padding-top: 0.12em;
+}
+table.dataTable.tfw_grid thead th.sorting_asc:after {
+    content: "\f0de";
+}
+table.dataTable.tfw_grid thead th.sorting_desc:after {
+    content: "\f0dd";
+}
+
+table.dataTable.tfw_grid
+{
+    background-color: transparent;
+}
+
+table.dataTable.tfw_grid thead th,
+table.dataTable.tfw_grid thead tr,
+table.dataTable.tfw_grid tfoot tr 
+{
+    background-color: #17375e;
+    color: #FFFFFF;
+}
+
+
+table.dataTable.tfw_grid tbody tr.odd 
+{
+    background-color: #efefef !important;
+}
+
+table.dataTable.tfw_grid tbody tr.even 
+{
+    background-color: #e5e5e5 !important;
+}
+
+table.dataTable.tfw_grid tbody tr:hover 
+{
+    background-color: #f5f5f5 !important;
+}
+
+table.dataTable.tfw_grid tbody tr.selected {
+    background-color: #666666 !important;
+    color: #FFFFFF;
+}
+ 
+
+.dt-buttons.btn-group
+{
+    width:40%;
+    display:block;
+}
+
+.dataTables_filter
+{
+
+}
+
+/*
+*************************************************************************************
+       jquery validator
+*************************************************************************************
+*/
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c20;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c20;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c20;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+
+/***********************************************************************
+****************************numéricos*************************************
+************************************************************************/
+
+.tfw_integer,
+.tfw_decimal,
+.tfw_money
+{
+
+	text-align:right;
+
+}
+
+
+
+
+
+
+/********************************************************************************************************/
+/**************************************** overrides do bootstrap ****************************************/
+/********************************************************************************************************/
+
+
+/* input group buttons e addon*/
+label.input-group-addon.control-label
+{
+    font-weight:bold;   
+}
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
+
+.input-group-addon input[type="submit"].btn 
+{
+	margin:0px !important;
+	border:0px !important;
+	border-style:none !important;
+	height:auto  !important;
+	width:100%  !important;
+}
+
+
+div.input-group.labeled-control label.control-label.input-group-addon
+{
+    background-color: #FFFFFF !important;   
+    text-align:left !important;
+    padding-left:0px !important;
+    border:none  !important;
+}
+    
+div.input-group.labeled-control label.control-label.input-group-addon +.form-control
+{
+    border-top-left-radius:4px !important;
+    border-bottom-left-radius:4px !important;
+}
+
+
+
+div.input-group.labeled-control-grouped label.control-label.input-group-addon
+{
+    background-color: #FFFFFF !important;   
+    text-align:left !important;
+    padding-left:5px !important;
+            
+}
+    
+div.input-group.labeled-control-grouped label.control-label.input-group-addon +.form-control
+{
+}
+
+.form-group
+{
+    padding-right:10px;
+}
+
+
+
+/****************************************************************************
+******************************** OVERRIDES DO SELECT2 ***********************
+*****************************************************************************/ 
+
+.OptionNivel0 
+{
+    padding-left:0px !important; 
+    color: #101010 !important;
+    font-size:16px !important;
+}
+        
+.OptionNivel1 
+{
+    padding-left:15px !important;   
+    color: #333333 !important;
+    font-size:15px !important;
+}
+        
+.OptionNivel2 
+{
+    padding-left:30px !important;   
+    color: #666666 !important;
+    font-size:14px !important;
+}    
+
+.OptionNivel3 
+{
+    padding-left:40px !important;   
+    color: #999999 !important;
+    font-size:14px !important;
+}   
+
+
+.OptionNivel4 
+{
+    padding-left:50px !important;   
+    color: #aaaaaa !important;
+    font-size:13px !important;
+}   
+
+
+.OptionNivel5
+{
+    padding-left:60px !important;   
+    color: #bbbbbb !important;
+    font-size:12px !important;
+}   
+
+
+.OptionNivel6 
+{
+    padding-left:70px !important;   
+    color: #cccccc !important;
+    font-size:11px !important;
+}   
+
+
+
+
+:hover[class*="OptionNivel"]:not(.disabled), 
+:hover[class*="OptionNivel"]:not(disabled)
+{
+    color:#DDDDDD !important;   
+}
+
+
+
+:active[class*="OptionNivel"]:not(.disabled), 
+:active[class*="OptionNivel"]:not(disabled)
+{
+    color:#FFFFFF !important;   
+}
+
+
+:selected[class*="OptionNivel"]:not(.disabled), 
+:selected[class*="OptionNivel"]:not(disabled)
+{
+    color:#FFFFFF !important;   
+}
+
+
+
+
+.form-group .select2-container,
+.input-group .select2-container {
+    position: relative;
+    z-index: 2;
+    width: 100% !important;
+    margin-bottom: 0;
+    display: table;
+    table-layout: fixed;
+}
+
+
+
+input[type=search].select2-search__field
+{
+   width:100% !important;
+}
+
+
+
+.form-group .select2-selection,
+.input-group .select2-selection {
+
+    border-color: #ccc !important;
+    min-height:34px !important;
+}
+
+
+.input-group .select2-selection
+{
+    /*border-color: #e80c20 !important;*/
+    border-top-left-radius:unset !important;
+    border-bottom-left-radius:unset !important;
+}
+
+
+
+span.select2-selection__arrow {
+    background-color: #ddd !important;
+    border: none;
+    border-left: 1px solid #ccc !important;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 32px !important;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 30px !important;
+    background-image: -webkit-linear-gradient(top, #eee 50%, #ccc 100%);
+    background-image: -o-linear-gradient(top, #eee 50%, #ccc 100%);
+    background-image: linear-gradient(to bottom, #eee 50%, #ccc 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEEEEEE', endColorstr='#FFCCCCCC', GradientType=0);
+}
+
+
+
+
+li[aria-disabled="true"]
+{
+    background-color: #CCCCCC !important;
+	color:#777777 !important;
+    cursor:not-allowed !important; 
+	text-shadow: 1px 1px white, 1px 1px #777777;
+
+    /*a pedido do jefferson*/
+    display:none;
+}
+
+
+
+
+/****************************************************************************
+******************************** customizações do bootbox ***********************
+*****************************************************************************/ 
+.bootbox-body
+{
+    white-space:pre-line;
+}

@@ -1,0 +1,99 @@
+﻿@using TPA.ViewModel
+@using TPA.Services.Seguranca
+@using TPA.Services
+
+
+@{
+    ViewBag.Title = "Importar Planilha";
+}
+
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function ()
+        {
+            $("#UploadedFile").change(function () {
+                $("#spFileName").text($("#UploadedFile").val());
+            });
+        });
+    </script>
+
+
+}
+
+
+<h2>Importar Planilha</h2>
+
+
+
+<div class="row">
+    <div class="col-sm-12  text-right" id="divBotoes">
+        @Html.ActionLink("Voltar à Home", "Index", "Home", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+
+@using (Html.BeginForm("Index", "ImportacaoPlanilha", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid bordered spacer">
+
+        <div class="row">
+            <div class="col-sm-12  text-left alert alert-info">
+
+                    <a href="/doc/MODELO-CARGA-USUARIO-UNICO.XLSX" class="btn btn-primary" target="_blank"><strong>Baixar Modelo</strong></a>
+
+            </div>
+        </div>     
+        
+        <div class="row">
+            <div class="col-sm-12 ">
+                @if (ControleAcesso.TemAcesso(SegurancaResources.GERENCIAR_ATIVIDADES_FUNCIONARIOS))
+                { 
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("IdUsuario", "Usuário", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.DropDownList("IdUsuario", ViewBag.Usuarios as SelectList, string.Empty, new { @class = "form-control  tfw_select2" })
+                        </div>
+                        @Html.ValidationMessage("IdUsuario", new { @class = "text-danger" })
+                    </div>
+                }
+                else
+                {
+
+                    var UsuarioAtual = UserServices.GetByLogin(User.Identity.Name);
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("IdUsuario", "Usuário", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control">@UsuarioAtual.Nome</span>
+                        </div>
+                        <input type="hidden" name="IdUsuario" id="IdUsuario" value="@UsuarioAtual.Id" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 ">
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.Label("UploadedFile", "Planilha", htmlAttributes: new { @class = "control-label input-group-addon" })
+                        <input type="file" id="UploadedFile" name="UploadedFile" style="display:none"  />
+                        <label for="UploadedFile" id="spFileName" class="form-control">Escolha o Arquivo</label>
+                    </div>
+                    @Html.ValidationMessage("UploadedFile", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 text-right">
+                <input type="Submit" value="Enviar" class="btn btn-primary" />
+            </div>
+        </div>    
+    </div>
+
+
+}

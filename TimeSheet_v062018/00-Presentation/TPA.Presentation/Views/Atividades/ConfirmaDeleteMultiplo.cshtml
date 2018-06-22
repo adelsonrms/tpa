@@ -1,0 +1,59 @@
+﻿@model List<TPA.Domain.DomainModel.Atividade>
+
+@{
+    ViewBag.Title = "Excluir Atividade";
+}
+
+<h2>Excluir atividade</h2>
+
+<h3>Você tem certeza que deseja excluir este(s) registro(s)?</h3>
+<div>
+
+@using (Html.BeginForm("DeleteMultiploConfirmado", "Atividades", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <hr />
+
+        <input type="hidden" name="ids" value="@Model[i].Id" />
+
+        <dl class="dl-horizontal  bordered spacer">
+            <dt>
+                @Html.DisplayNameFor(model => model[i].Observacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model[i].Observacao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model[i].Inicio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model[i].Inicio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model[i].Fim)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model[i].Fim)
+            </dd>
+
+        </dl>
+
+    }
+
+
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        @Html.ActionLink("Voltar à lista", "Index", new { attIdx = ViewBag.attIdx }, new { @class = "btn btn-primary" })
+    </div>
+}
+</div>

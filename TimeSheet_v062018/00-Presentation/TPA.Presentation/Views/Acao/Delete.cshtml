@@ -1,0 +1,41 @@
+﻿@model TPA.Domain.DomainModel.Acao
+
+@{
+    ViewBag.Title = "Excluir ação de usuário";
+}
+
+<h2>Excluir ação de usuário</h2>
+
+<h3>Você tem certeza que deseja excluir este registro?</h3>
+<div class="container-fluid  spacer text-left" >
+
+
+    <hr />
+    <dl class="dl-horizontal bordered spacer ">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+    </dl>
+    <hr />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> 
+            @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

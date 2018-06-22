@@ -1,0 +1,693 @@
+﻿@using TPA.Services.Seguranca
+@using TPA.Presentation.Util;
+@using TPA.ViewModel
+@using TPA.Framework
+
+@model AtividadeIndexViewModel
+
+@{
+    ViewBag.Title = "Página Inicial";
+}
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            var $tblConsolidado = $('#tblConsolidado').DataTable(
+            {
+                pageLength: 10,
+                lengthChange: false,
+                columnDefs:
+                [
+                    { orderable: true, targets: 0, iDataSort: 3 },
+                    { visible: false, targets: [3] }
+
+                ],
+
+                "dom": 'Bftp',
+                stateSave: true,
+                language:
+                {
+                    "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                },
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }
+                ]
+            });
+
+
+            var $tblLista = $('#tblLista').DataTable(
+            {
+                pageLength: 10,
+                lengthChange: false,
+                columnDefs:
+                [
+                    @if(ControleAcesso.TemAcesso(SegurancaResources.EDITAR_ATIVIDADE))
+                    {
+                        @:{ orderable: false, targets: [7, 8, 9] },
+                    }
+                    else
+                    {
+                        @:{ orderable: false, targets: [7] },
+                    }
+                    { orderable: true, targets: 3, iDataSort: 7 },
+                    { visible: false, targets: [7] }
+
+                ],
+                sDom: 'Bftp',
+                stateSave: true,
+                language:
+                        {
+                            "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                        },
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }
+                ]
+            });
+
+
+            function atualizaPaineisGrids(data)
+            {
+                try
+                {
+
+                    $.ajax(
+                    {
+                        url: '@Url.Action("CarregaReferencia")',
+                        type: 'POST',
+                        async: true,
+                        cache: false,
+                        timeout: 60000,
+                        data: data,
+                        success: function (result) {
+
+                            $("#previstoDoMes").text(result.PrevistoDoMes);
+                            $("#previstoCorrente").text(result.PrevistoCorrente);
+                            $("#realizadoDoMes").text(result.RealizadoDoMes);
+                            $("#saldoDoMes").text(result.SaldoDoMes);
+                            $("#bancoDeHoras").text(result.BancoDeHoras);
+
+                            $("#bancoDeHoras").css({ color: ( parseInt(result.BancoDeHoras.replace(":", "") || "0") < 0) ? 'red' : 'forestgreen' });
+
+
+                            $tblConsolidado.clear();
+                            $tblConsolidado.rows.add(result.ConsolidadoDiario);
+                            $tblConsolidado.draw();
+
+                            $tblLista.clear();
+                            $tblLista.rows.add(result.Atividades);
+                            $tblLista.draw();
+
+
+                        },
+                        error: function (request, textStatus, errorThrown)
+                        {
+
+                            if (textStatus === 'parsererror')
+                            {
+                                bootbox.alert('A página retornou um objeto inválido.');
+                            }
+                            else if (textStatus === 'timeout')
+                            {
+                                bootbox.alert('Tempo limite para operação excedido.');
+                            }
+                            else if (textStatus === 'abort')
+                            {
+                                bootbox.alert('Requisição cancelada pelo usuário.');
+                            }
+                            else if (request.status === 401)
+                            {
+                                window.location.href = '/home/index/';
+                                location.reload();
+                            }
+                            else if (request.status === 302) {
+                                window.location.href = '/home/index/';
+                                location.reload();
+                            }
+                            else if (request.status === 0) {
+                                window.location.href = '/home/index/';
+                                location.reload();
+                            }
+                            else
+                            {
+                                bootbox.alert("Não foi possível recuperar a informação:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+                            }
+                        }
+                    });
+                }
+                catch (e)
+                {
+                    bootbox.alert(e.message);
+                }
+            }
+
+
+            $('#tblLista tr td:not(:last-child)').click(function () {
+                location.href = '@(Url.Action("Edit", "Home"))/' + $(this).parent().data("id");
+            });
+
+            $("#painelTabelas").on("click", "span.delete-button", function () {
+                
+                var botao = $(this);
+                var iid = $(this).data("id");
+                var tok = '@JsonAntiforgeryHelpers.GetFormToken()';
+                var data =
+                    {
+                        '@AntiForgeryConfig.CookieName': tok,
+                        id: parseInt(iid)
+                    };
+
+                bootbox.confirm("Tem certeza que deseja excluir essa atividade?", function (confirmado) {
+                    if (confirmado) {
+
+                        try {
+
+
+                            $.ajax(
+                                {
+                                    url: '@Url.Action("Delete")',
+                                    async: true,
+                                    type: 'DELETE',
+                                    data: data,
+                                    cache: false,
+                                    success: function (result) {
+
+                                        if (result) {
+                                            bootbox.alert("Atividade excluida com sucesso!");
+                                            $tblLista
+                                              .row($("#tblLista tr[data-id='" + iid + "']"))
+                                              .remove()
+                                                .draw();
+
+                                                
+                                                var selecionado = $('.referencias').select2('data');
+                                                var sid = selecionado[0].id;
+                                                var text = selecionado[0].text;
+
+                                                var tokGrid = '@JsonAntiforgeryHelpers.GetFormToken()';
+                                                var dataGrid =
+                                                    {
+                                                        '@AntiForgeryConfig.CookieName': tokGrid,
+                                                        id: parseInt(sid)
+                                                    };
+
+                                                atualizaPaineisGrids(dataGrid);
+                                        }
+                                        else {
+                                            bootbox.alert("Atividade não pode ser excluída!");
+                                        }
+                                    },
+                                    error: function (request, textStatus, errorThrown) {
+                                        if (textStatus === 'parsererror') {
+                                            bootbox.alert('A página retornou um objeto inválido.');
+                                        }
+                                        else if (textStatus === 'timeout') {
+                                            bootbox.alert('Tempo limite para operação excedido.');
+                                        }
+                                        else if (textStatus === 'abort') {
+                                            bootbox.alert('Requisição cancelada pelo usuário.');
+                                        }
+                                        else if (request.status === 401) {
+                                            window.location.href = '/home/index/';
+                                            location.reload();
+                                        }
+                                        else if (request.status === 302) {
+                                            window.location.href = '/home/index/';
+                                            location.reload();
+                                        }
+                                        else if (request.status === 0) {
+                                            window.location.href = '/home/index/';
+                                            location.reload();
+                                        }
+                                        else {
+                                            bootbox.alert("Não foi possível excluir:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+                                        }
+                                    }
+                                });
+                        }
+                        catch (e) {
+                            bootbox.alert("Não foi possível excluir porque: " + e.message);
+                        }
+                    }
+                });
+
+            });
+
+
+
+            function formatarSelecao(item) {
+
+                try {
+
+                    var originalText = item.text;
+                    var splitted = originalText.split("/");
+
+                    var ano = "<div class='titulozinho'>Ano</div> <div class='conteudozinho'>" + splitted[1] + "</div>";
+                    var mes = "<div class='titulozinho'>Mês</div> <div class='conteudozinho'>" + splitted[0] + "</div>";
+                    var caixaAno = "<div class='bordered caixaMes'>" + ano + "</div>";
+                    var caixaMes = "<div class='bordered caixaAno'>" + mes + "</div>";
+
+                    var caixa = "<div class='calendario'>" + caixaMes + caixaAno + "</div>";
+
+                    return $(caixa);
+
+                }
+                catch (err) {
+                    return $("<span>" + originalText + "</span>");
+                }
+            }
+
+
+
+            function formatarDisplay(item) {
+
+                try {
+
+                    var originalText = item.text;
+
+                    var conteudo = "<span class='selectConteudo'>" + originalText + "</span>";
+
+                    return $(conteudo);
+
+                }
+                catch (err) {
+                    return $("<span>" + originalText + "</span>");
+                }
+            }
+
+
+            $('.referencias').select2({
+                templateResult: formatarDisplay,
+                templateSelection: formatarSelecao,
+                dropdownAutoWidth: false,
+                width: '100%'
+            }).on("change", function (e) {
+
+                    var selecionado = $(this).select2('data');
+                    var sid = selecionado[0].id;
+                    var text = selecionado[0].text;
+
+                    var tok = '@JsonAntiforgeryHelpers.GetFormToken()';
+                    var data =
+                        {
+                            '@AntiForgeryConfig.CookieName': tok,
+                            id: parseInt(sid)
+                        };
+
+                    atualizaPaineisGrids(data);
+
+
+                });
+
+        });
+
+
+
+
+
+    </script>
+
+    <style type="text/css">
+        .mes
+        {
+
+        }
+
+        .ano{
+
+        }
+
+        .bancohoras
+        {
+
+        }
+
+        .titulo
+        {
+            font-weight:bold;
+            color: #e46c0a;
+            text-align:right;
+            clear:both;
+        }
+
+        .conteudo
+        {
+            font-weight:bold;
+            color: #17375e;
+            font-size:x-large;
+            text-align:right;
+            clear:both;
+        }
+
+
+        .titulozinho
+        {
+            font-weight:bold;
+            color: #e46c0a;
+            text-align:right;
+            clear:both;
+            font-size:small;
+            margin:0px !important;
+            padding:0px !important;
+            height:18px !important;
+
+        }
+
+        .conteudozinho
+        {
+            font-weight:bold;
+            color: #17375e;
+            font-size:medium;
+            text-align:right !important;
+            clear:both;
+            margin:0px !important;
+            padding:0px !important;
+            height:18px !important;
+        }
+
+
+        .selectConteudo
+        {
+            font-weight:bold;
+            color: #17375e;
+            font-size:medium;
+            margin:0px !important;
+            padding:0px !important;
+            height:auto !important;
+        }
+
+
+        .caixinhaContainer
+        {
+
+        }
+
+        .calendario{
+
+            margin-top:5px;
+            margin-left:0px;
+            margin-right:13px;
+
+            height:44px !important;
+        }
+
+        .caixaMes,
+        .caixaAno
+        {
+            height:44px !important;
+            width:45%;
+            float:left; 
+            clear:right;
+            padding-right: 5px;
+            margin-right: 5px;
+        }
+
+
+
+        .referencias + .select2-container--default .select2-selection--multiple{
+          height: 56px !important;
+        }
+
+        .refbox
+        {
+            padding-left:0px !important;
+            padding-right:4px !important;
+        }
+
+
+        .refbox .select2-selection {
+
+            border-color: #ccc !important;
+            height:56px !important;
+            padding-left:0px !important;
+        }
+
+        .refbox span.select2-selection__arrow {
+            height:54px !important;
+        }
+
+
+
+    </style>
+}
+
+<h1>Tecnun Projetos e Apontamentos</h1> 
+
+ @if((ControleAcesso.TemAcesso(SegurancaResources.GERENCIAR_ATIVIDADES_FUNCIONARIOS)) && ((Model.UsuariosComAtrasoNoLancamento??0) > 0))
+ {
+     <div class="alert alert-warning">
+         <a href="@Url.Action("AtrasoLancamento", "Usuarios")" class="alert-link">@(string.Format("ADM, atenção, há {0} usuários com o envio das atividades atrasado.", Model.UsuariosComAtrasoNoLancamento))</a>
+     </div>
+ }
+
+@{
+    ReferenciaViewModel rvm = Model.ReferenciaAtual;
+    if ((rvm != null) && (ViewBag.Referencias != null) && ((ViewBag.Referencias as SelectList).Count() > 0))
+    {
+        <div class ="row sp-vertical" >
+            <div class="col-sm-7" style="padding-left:0px; padding-right:0px;">
+                <div class="col-sm-4 refbox">
+                    @Html.DropDownListFor(model => model.ReferenciaAtual.Id, ViewBag.Referencias as SelectList, new { @class = "form-control referencias" })
+                </div>
+                <div class="col-sm-4  bordered caixinhas">
+                    <div class="caixinhaContainer ">
+                        <div class="row">
+                            <div class="col-sm-12 titulo ">
+                                Previsto&nbsp;Do&nbsp;Mês
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 conteudo " id="previstoDoMes">
+                                @rvm.PrevistoDoMes.BigTimeSpanToString()
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4 bordered caixinhas">
+                    <div class="caixinhaContainer ">
+                        <div class="row">
+                            <div class="col-sm-12 titulo ">
+                                Previsto&nbsp;Até&nbsp;Hoje
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 conteudo " id="previstoCorrente">
+                                @rvm.PrevistoCorrente.BigTimeSpanToString()
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-5" style="padding-left:0px; padding-right:0px;">
+                <div class="col-sm-4 bordered caixinhas">
+                    <div class="caixinhaContainer ">
+                        <div class="row">
+                            <div class="col-sm-12 titulo ">Realizado</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 conteudo " id="realizadoDoMes">
+                                @rvm.RealizadoDoMes.BigTimeSpanToString()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4  bordered caixinhas">
+                    <div class="caixinhaContainer ">
+                        <div class="row">
+                            <div class="col-sm-12 titulo ">
+                                Saldo&nbsp;do&nbsp;Mês
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 conteudo " id="saldoDoMes">
+                                @rvm.SaldoDoMes.BigTimeSpanToString()
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-4  bordered bancohoras">
+                    <div class="caixinhaContainer ">
+                        <div class="row">
+                            <div class="col-sm-12 titulo ">
+                                Banco&nbsp;de&nbsp;Horas
+                            </div>
+                        </div>
+
+                        @*Formatação Condicional para a quantidade de banco de horas*@
+                        <div class="row">
+                            <div class="col-sm-12 conteudo" id="bancoDeHoras" style='color:@((rvm.BancoDeHoras < TimeSpan.Zero) ? "red" : "forestgreen")'>
+                                @rvm.BancoDeHoras.BigTimeSpanToString()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="row sp-vertical"></div>
+    }
+}
+
+<div class="row sp-vertical">
+    <div class="container-fluid bordered spacer" id="divFormulario">
+        <div class="form-horizontal">
+            @using (Html.BeginForm("Busca", "Home", FormMethod.Get))
+            {
+
+                <fieldset>
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <label for="DataInicio" class="control-label input-group-addon">Data Inicial</label>
+                            @Html.TextBox("DataInicio", "", new { id = "DataInicio", @class = "form-control tfw_datepicker disabled", @readonly = "true" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <label for="DataFim" class="control-label input-group-addon">Data Final</label>
+                            @Html.TextBox("DataFim", "", new { id = "DataFim", @class = "form-control tfw_datepicker disabled", @readonly = "true" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-4 text-right pull-right" id="divBotoes" >
+                        <button type="submit" name="btPesquisar" value="Pesquisar" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Pesquisar</button>
+                        <a class="btn btn-primary" href='@Url.Action("CreateAjax", "Home")'><span class="glyphicon glyphicon-tasks"></span> Nova Atividade</a>
+                    </div>
+                                     
+
+                </fieldset>
+
+            }
+        </div>
+    </div>
+</div>
+<div class="row sp-vertical">
+    <div class="col-sm-12 bordered spacer" >
+        <div class="container-fluid" >
+            
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Diário</a></li>
+                <li><a data-toggle="tab" href="#menu1">Detalhado</a></li>
+            </ul>
+
+            <div class="tab-content" id="painelTabelas">
+                <div id="home" class="tab-pane fade in active">
+                    <h3>Atividades consolidadas por dia</h3>
+
+                    <table id="tblConsolidado" class="table table-striped table-bordered tfw_grid" style="width:100%;" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Horas</th>
+                                <th>Cliente</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (Model.ConsolidadoDiario != null && Model.ConsolidadoDiario.Count > 0)
+                            {
+                                foreach (var a in Model.ConsolidadoDiario)
+                                {
+                            <tr>
+                                <td>@a.Data.ToString("dd/MM/yyyy")</td>
+                                <td>@a.Horas.TimeSpanToString()</td>
+                                <td>@a.ClienteNome</td>
+                                <td>@a.Data.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div id="menu1" class="tab-pane fade">
+                    <h3>Atividades Detalhadas</h3>
+                    <table id="tblLista" class="table table-striped table-bordered tfw_grid" style="width:100%;" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Projeto</th>
+                                <th>Atividade</th>
+                                <th>Observacao</th>
+                                <th>Data</th>
+                                <th>Início</th>
+                                <th>Fim</th>
+                                <th>Duração</th>
+                                <th>-</th>
+
+                                    @if (ControleAcesso.TemAcesso(SegurancaResources.EDITAR_ATIVIDADE))
+                                    {
+                                        <th class="text-center"><span class="glyphicon glyphicon-edit"></span></th>
+                                        <th class="text-center"><span class="glyphicon glyphicon-remove"></span></th>
+                                    }
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var a in Model.Atividades)
+                            {
+                            <tr data-id="@a.Id">
+                                <td>@a.ProjectNodeNome</td>
+                                <td>@a.TipoAtividadeNome</td>
+                                <td>@a.Observacao</td>
+                                <td>@a.Inicio.ToString("dd/MM/yyyy")</td>                                
+                                <td>@a.Inicio.ToString("HH:mm")</td>
+                                <td>@a.Fim.ToString("HH:mm")</td>
+                                
+                                <td>                                    
+                                    @(((TimeSpan)(a.Fim - a.Inicio)).TimeSpanToString())
+                                </td>
+                                <td>@a.Inicio.ToString("yyyy-MM-dd")</td>
+
+                                @if (ControleAcesso.TemAcesso(SegurancaResources.EDITAR_ATIVIDADE))
+                                {
+                                    <td class="text-center">
+                                        @if (!a.ReferenciaFechado)
+                                        {
+                                            <a href="@(Url.Action("Edit", "Home", new { id = a.Id }))"><span class="glyphicon glyphicon-edit"></span></a>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @if (!a.ReferenciaFechado)
+                                        {
+                                            <span data-id="@a.Id" class="glyphicon glyphicon-remove delete-button" id="@("spdeletar" + a.Id)"></span>
+                                        }
+
+                                    </td>
+                                }
+                                
+                            </tr>
+                         }
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+</div>

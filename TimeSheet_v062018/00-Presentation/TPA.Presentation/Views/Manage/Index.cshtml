@@ -1,0 +1,148 @@
+﻿@model TPA.Presentation.Models.ManageViewModel
+@{
+    ViewBag.Title = "Gerenciar";
+
+    var usuarioAtual = TPA.Services.UserServices.GetByLogin(User.Identity.Name);
+}
+
+
+@section scripts
+{
+
+    <script>
+        $(function () {
+            $("#Celular").mask("(00) 0000-00009");
+        });
+    </script>
+
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h3>Alterar configurações de sua conta</h3>
+    <hr />
+
+
+
+
+
+    @using (Html.BeginForm("MeusDados", "Account"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container-fluid bordered spacer">
+            <div class="form-horizontal">
+                <h4>Meus Dados</h4>
+                <hr />
+
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+                @Html.Hidden("Id", usuarioAtual.Id.ToString(), new { Id="Id" })
+
+                <div class="row sp-vertical">
+                    <div class="col-sm-6">
+
+                        <div class="input-group">
+                            @Html.Label("Nome", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBox("Nome", usuarioAtual.Nome, new {  Id = "Nome",  @class = "form-control", data_val = "true", data_val_required = "O campo Nome é obrigatório." })
+
+                        </div>
+                        @Html.ValidationMessage("Nome", "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-sm-6">
+
+                        <div class="input-group">
+                            @Html.Label("Celular", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBox("Celular", usuarioAtual.Celular, new {  Id = "Celular",  @class = "form-control", data_val = "true", data_val_phone = "O campo Celular não é um número de telefone válido." })
+
+                        </div>
+                        @Html.ValidationMessage("Celular", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row sp-vertical">
+
+                    <div class="col-sm-12">
+
+                        <div class="input-group">
+                            @Html.Label("EmailProfissional", "E-mail no ambiente do cliente", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBox("EmailProfissional", usuarioAtual.EmailProfissional, new { Id = "Celular", @class = "form-control", data_val = "true", data_val_email = "O campo E-mail no ambiente do cliente não é um endereço de email válido." })
+
+                        </div>
+                        @Html.ValidationMessage("EmailProfissional", "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="row sp-vertical">
+                    <div class="col-sm-12 text-right">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    }
+
+
+
+    @using (Html.BeginForm("SetPassword", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="container-fluid bordered spacer">
+            <h4>Criar senha local</h4>
+            <hr />
+            @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="input-group">
+
+                </div>
+            </div>
+
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("NewPassword", "Digite a Nova Senha", new { @class = "control-label input-group-addon" })
+                            @Html.Password("NewPassword", "", new { @class = "form-control", @data_val = "true", @data_val_required = "Password Requerido" })
+                        </div>
+                    @Html.ValidationMessage("NewPassword", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+
+
+
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("ConfirmPassword", "Confirme a Nova Senha", new { @class = "control-label input-group-addon" })
+                            @Html.Password("ConfirmPassword", "", new { @class = "form-control", @data_val = "true", @data_val_required = "Confirmação do Password Requerido" })
+                        </div>
+                        @Html.ValidationMessage("ConfirmPassword", "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 text-right">
+                    <input type="submit" value="Definir senha" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
+
+</div>
+

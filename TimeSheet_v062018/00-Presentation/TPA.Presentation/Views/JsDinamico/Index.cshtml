@@ -1,0 +1,54 @@
+﻿function DefinirCultura(culture)
+{   
+    window.rootUrl =     '@Url.Content("~/")'; 
+    
+     $.when(
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/likelySubtags.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/pt/numbers.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/numberingSystems.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/plurals.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/ordinals.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/pt/currencies.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/currencyData.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/pt/ca-gregorian.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/pt/timeZoneNames.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/timeData.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/supplemental/weekData.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/pt/dateFields.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/pt/units.json"),
+
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/en/numbers.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/en/currencies.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/en/ca-gregorian.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/en/timeZoneNames.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/en/dateFields.json"),
+            $.getJSON(window.rootUrl + "Scripts/cldr/main/en/units.json")
+        ).then(function () {
+
+            // Normalize $.get results, we only need the JSON, not the request statuses.
+            return [].slice.apply(arguments, [0]).map(function (result) {
+            return result[0];
+        });
+
+        }).then(Globalize.load).then(function () {
+
+            // Your code goes here.
+            Globalize.locale(culture);
+
+        });
+
+}
+
+$(function(){
+
+    try
+    {
+        DefinirCultura("@System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName");
+        //alert("js dinamico carregado");
+    }
+    catch(e)
+    {
+        alert("erro " + e.message);
+    }
+
+});

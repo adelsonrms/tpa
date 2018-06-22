@@ -1,0 +1,91 @@
+﻿@using TPA.Presentation.Util;
+@using TFW.Domain
+@model TPA.ViewModel.FechamentoViewModel
+
+@{
+    ViewBag.Title = "Fechamento de Mês";
+}
+
+<h2>Fechamento de Mês</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.IdUsuario)
+
+    <div>
+        <div class="text-right">
+            @Html.ActionLink("Voltar à lista", "Index",  new { idUsuario = Model.IdUsuario, ano = Model.Ano, mes = Model.Mes }, new { @class = "btn btn-default" })
+        </div>
+
+    </div>
+
+    <div class="container-fluid bordered spacer" style="clear:left;">
+
+        <div class="form-horizontal">
+            <fiedset>
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+
+
+                                @Html.LabelFor(model => model.Ano, htmlAttributes: new { @class = "control-label" })
+                                @Html.DisplayFor(model => model.Ano)
+
+                    </div>
+                    <div class="col-sm-4">
+
+
+                                @Html.LabelFor(model => model.Mes, htmlAttributes: new { @class = "control-label" })
+                                @Html.DisplayFor(model => model.Mes)
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.HorasPrevistasString, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.EditorFor(model => model.HorasPrevistasString, new { htmlAttributes = new { @class = "form-control tfw_bigtimepicker", title = "Informe a quantidade de horas previstas" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.HorasPrevistasString, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="col-sm-2">
+
+                            <div class="input-group">
+                                <label for="Fechado" class="control-label input-group-addon">  Fechado</label>
+                                <div class="form-control">@Html.CheckBoxFor(model => model.Fechado, new { @class = "", style= "height:22px !important; width:22px !important; margin-top:0px;" })</div>
+                            </div>
+
+                            @Html.ValidationMessageFor(model => model.Fechado, "campo obrigatório", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="col-sm-2 text-right">
+
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+
+                    </div>
+                </div>
+
+            </fiedset>
+
+        </div>
+
+    </div>
+
+
+
+}
+
+<hr />

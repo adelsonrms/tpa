@@ -1,0 +1,431 @@
+﻿@using TPA.Services.Seguranca
+@model TPA.ViewModel.GerenciarAcoesViewModel
+
+@{
+    ViewBag.Title = "Controladores e Ações do perfil " + Model.NomePerfil;
+}
+
+
+
+
+@section scripts
+{
+    <style type="text/css">
+        table.tfw_grid {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+            table.tfw_grid td {
+                word-wrap: break-word;
+            }
+
+        #tblLista, #tblActions {
+            font-size: x-small;
+        }
+
+
+
+
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var $tblLista = $('#tblLista').DataTable(
+                {
+                    pageLength: 5,
+                    lengthChange: false,
+                    "order": [[3, 'asc']],
+                    columnDefs: [{
+                        orderable: false,
+                        className: 'select-checkbox',
+                        'targets': 0
+
+                    }, {visible:false, targets:[0,1,2,4]}],
+                    sDom: 'ftp',
+                    stateSave: true,
+                    language:
+                    {
+                        "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                },
+                select: {
+                    style: 'single',
+                    selector: 'tr'
+                }
+                });
+
+
+
+
+             var $tblActions = $('#tblActions').DataTable(
+                {
+                    pageLength: 5,
+                    lengthChange: false,
+                    "order": [[2, 'asc']],
+                    columnDefs:
+                    [
+                        {
+                            orderable: false,
+                            className: 'select-checkbox',
+                            'targets': 4
+                        },
+                        {
+                                visible: false, targets: [0, 1,  3]
+                        },
+                        { "width": "5%", "targets": 4 },
+                        { "width": "95%", "targets": 2 }
+
+                    ],
+                    sDom: 'ftp',
+                    stateSave: true,
+                    language:
+                    {
+                        "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                },
+                select: {
+                    style: 'multiple',
+                    selector: 'tr'
+                }
+                });
+
+
+
+             $tblLista.on('deselect', function (e, dt, type, indexes) {
+                 if (type === 'row') {
+
+                     $("#divActions").hide();
+
+                 }
+             });
+
+
+            $tblLista.on('select', function (e, dt, type, indexes) {
+                if (type === 'row') {
+
+                    var dados = $tblLista.rows(indexes).data()[0];
+                    var nome = dados[2];
+                    var tok = '@JsonAntiforgeryHelpers.GetFormToken()';
+                    var dataGrid =
+                    {
+                            '@AntiForgeryConfig.CookieName': tok,
+                            controllerName: nome,
+                            idPerfil: $("#IdPerfil").val()
+                    };
+
+                    try
+                    {
+
+                        $.ajax(
+                        {
+                            url: '@Url.Action("GetActions")',
+                            type: 'POST',
+                            async: true,
+                            cache: false,
+                            timeout: 60000,
+                            data: dataGrid,
+                            success: function (result) {
+
+
+
+
+                                $("#divActions").show();
+
+                                $tblActions.clear();
+                                $tblActions.rows.add(result.Dados);
+                                $tblActions.draw();
+
+                                $tblActions.rows(function (idx, data, node) {
+                                    return data[0] === 'true' ?
+                                        true : false;
+                                }).select();
+
+                            },
+                            error: function (request, textStatus, errorThrown)
+                            {
+                                $("#divActions").hide();
+
+                                if (textStatus === 'parsererror')
+                                {
+                                    bootbox.alert('A página retornou um objeto inválido.');
+                                }
+                                else if (textStatus === 'timeout')
+                                {
+                                    bootbox.alert('Tempo limite para operação excedido.');
+                                }
+                                else if (textStatus === 'abort')
+                                {
+                                    bootbox.alert('Requisição cancelada pelo usuário.');
+                                }
+                                else if (request.status === 401)
+                                {
+                                    window.location.href = '/home/index/';
+                                    location.reload();
+                                }
+                                else if (request.status === 302) {
+                                    window.location.href = '/home/index/';
+                                    location.reload();
+                                }
+                                else if (request.status === 0) {
+                                    window.location.href = '/home/index/';
+                                    location.reload();
+                                }
+                                else
+                                {
+                                    bootbox.alert("Não foi possível recuperar a informação:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+                                }
+                            }
+                        });
+                    }
+                    catch (e)
+                    {
+                        bootbox.alert(e.message);
+                    }
+
+                }
+             });
+
+
+
+            $tblActions.on('select', function (e, dt, type, indexes) {
+                if (type === 'row') {
+
+                    if ($tblActions.cell(indexes[0], 0).data() != "true") {
+                        $tblActions.cell(indexes[0], 0).data("true").draw();
+                        var nomeAcao = $tblActions.cell(indexes[0], 1).data();
+                        executa('select', nomeAcao);
+                    }
+
+                }
+            });
+
+            $tblActions.on('deselect', function (e, dt, type, indexes) {
+                if (type === 'row') {
+
+                    if ($tblActions.cell(indexes[0], 0).data() != "false") {
+                        $tblActions.cell(indexes[0], 0).data("false").draw();
+                        var nomeAcao = $tblActions.cell(indexes[0], 1).data();
+                        executa('deselect', nomeAcao);
+                    }
+
+                }
+            });
+
+
+            function executa(nomeEvt, nomeAcao)
+            {
+                if ((nomeEvt) && (nomeAcao))
+                {
+
+                    var url = '@Url.Action("RemoveActionFromRole", "Seguranca")';
+                    if (nomeEvt === "select")
+                    {
+                        url = '@Url.Action("AddActionToRole", "Seguranca")';
+                    }
+                    else
+                    {
+                        url = '@Url.Action("RemoveActionFromRole", "Seguranca")';
+                    }
+
+
+                    var tok = '@JsonAntiforgeryHelpers.GetFormToken()';
+                    var dadosPost =
+                    {
+                            '@AntiForgeryConfig.CookieName': tok,
+                            actionName: nomeAcao,
+                            roleId: $("#IdPerfil").val()
+                    };
+
+                    try
+                    {
+
+                        $.ajax(
+                        {
+                            url: url,
+                            type: 'POST',
+                            async: true,
+                            cache: false,
+                            timeout: 60000,
+                            data: dadosPost,
+                            success: function (result) {
+
+
+                                if (!result.Sucesso)
+                                {
+                                    bootbox.alert(result.Mensagem);
+                                }
+
+
+                            },
+                            error: function (request, textStatus, errorThrown)
+                            {
+
+                                if (textStatus === 'parsererror')
+                                {
+                                    bootbox.alert('A página retornou um objeto inválido.');
+                                }
+                                else if (textStatus === 'timeout')
+                                {
+                                    bootbox.alert('Tempo limite para operação excedido.');
+                                }
+                                else if (textStatus === 'abort')
+                                {
+                                    bootbox.alert('Requisição cancelada pelo usuário.');
+                                }
+                                else if (request.status === 401)
+                                {
+                                    window.location.href = '/home/index/';
+                                    location.reload();
+                                }
+                                else if (request.status === 302) {
+                                    window.location.href = '/home/index/';
+                                    location.reload();
+                                }
+                                else if (request.status === 0) {
+                                    window.location.href = '/home/index/';
+                                    location.reload();
+                                }
+                                else
+                                {
+                                    bootbox.alert("Não foi possível recuperar a informação:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+                                }
+                            }
+                        });
+                    }
+                    catch (e)
+                    {
+                        bootbox.alert(e.message);
+                    }
+                }
+
+            }
+
+
+        });
+    </script>
+}
+
+<h2>Controladores e Ações do perfil @Model.NomePerfil</h2>
+
+
+<div class="row">
+    <div class="col-sm-12  text-right sp-vertical" id="divBotoes">
+        <a href="@(Url.Action("AdicionarAcao", "Perfil", new { id = Model.IdPerfil}))" class="btn btn-primary">Ir para o gerenciador de ações antigo <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></a>
+        &nbsp;
+        @Html.ActionLink("Voltar à Home", "Index", "Home", new { @class = "btn btn-default" })
+    </div>
+</div>
+
+
+<div class="sp-vertical">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.IdPerfil)
+
+        <div class="container-fluid">
+            <div class="row sp-vertical">
+
+            </div>
+
+            <div class="row sp-vertical">
+                <div class="col-sm-6">
+                    <table id="tblLista" class="table table-striped table-bordered tfw_grid" style="width:100%; overflow:scroll">
+                        <thead>
+                            <tr>
+                                <th width="5%"></th>
+                                <th>Nome</th>
+                                <th>Nome Completo</th>
+                                <th>Controles</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.Controllers)
+                            {
+                                <tr title="@item.Descricao">
+                                    <td></td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NomeClasse)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NomeClasseCompleto)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descricao)
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+
+
+                    </table>
+                </div>
+
+                <div class="col-sm-6" id="divActions" style="display:none; padding-left:5px;">
+                    <table id="tblActions" class="table table-striped table-bordered tfw_grid" style="width:100%; overflow:scroll">
+                        <thead>
+                            <tr>
+                                <th>X</th>
+                                <th>Nome Completo</th>
+                                <th width="95%">Ações</th>
+                                <th>Descrição</th>
+                                <th width="5%">Permissão</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td></td>
+
+                                <td>
+                                    -
+                                </td>
+
+                                <td>
+                                    
+                                </td>
+
+                                <td>
+                                    
+                                </td>
+
+                                <td>
+                                    
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="row sp-vertical rowRoles" >
+                <div class="col-sm-12 text-center">
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    }
+</div>

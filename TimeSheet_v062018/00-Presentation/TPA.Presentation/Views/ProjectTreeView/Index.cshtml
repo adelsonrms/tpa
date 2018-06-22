@@ -1,0 +1,987 @@
+﻿@using TPA.Presentation.Util
+
+@model MvcHtmlString
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@section scriptsHead
+{
+    @Styles.Render("~/bundles/treeviewCssBundle")
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/treeviewJsBundle")
+
+    <script type="text/javascript">
+
+
+        function travarSelecao()
+        {
+            $('#btSalvar').attr("disabled", "disabled");
+            $('#btSalvar').addClass("disabled");
+            $('#btExcluir').attr("disabled", "disabled");
+            $('#btExcluir').addClass("disabled");
+        }
+
+        function destravarSelecao()
+        {
+            $("body").removeClass("loading");
+            $('#btSalvar').removeAttr("disabled");
+            $('#btSalvar').removeClass("disabled");
+            $('#btExcluir').removeAttr("disabled");
+            $('#btExcluir').removeClass("disabled");
+        }
+
+        function destravarSalvar()
+        {
+            $('#btSalvar').removeAttr("disabled");
+            $('#btSalvar').removeClass("disabled");
+        }
+
+        function destravarNovo()
+        {
+            destravarSelecao();
+            limparNovo();
+        }
+
+        function limparNovo()
+        {
+            try
+            {
+                $("#txtId").val(0);
+                $("#txtIdPai").val(0);
+                $("#txtIdNodeLabel").val("").trigger("change");
+                $("#txtNome").val("");
+                $("#txtDescricao").val("");
+                $("#txtHoras").val(0);
+                $('#btExcluir').attr('disabled', 'disabled');
+
+                var $instance = $('#divArvore').jstree(true);
+                var selZero = $instance.get_selected(true)[0];
+                if (selZero) {
+                    var node = $instance.get_node(selZero);
+                    var id = node.data.idnode;
+                    $("#txtIdPai").val(id);
+                }
+            }
+            catch(err)
+            {
+                bootbox.alert("Ocorreu o seguinte erro: " + e.message);
+            }
+
+            return false;
+        }
+
+
+        function editar()
+        {
+            destravarNovo();
+
+            var $instance = $('#divArvore').jstree(true);
+            var selZero = $instance.get_selected(true)[0];
+            if (selZero)
+            {
+                var treeNode = $instance.get_node(selZero);
+
+                if (treeNode != null)
+                {
+
+                    var id = treeNode.data.idnode;
+                    var pai = treeNode.data.idpai;
+                    var idnodelabel = treeNode.data.nodelabelid;
+                    var nome = treeNode.data.nodenome;
+                    var descricao = treeNode.data.nodedescricao;
+                    var horas = treeNode.data.nodehoras;
+
+                    $("#txtId").val(id);
+                    $("#txtIdPai").val(pai);
+                    $("#txtIdNodeLabel").val(idnodelabel).trigger("change");
+                    $("#txtNome").val(nome);
+                    $("#txtDescricao").val(descricao);
+                    $("#txtHoras").val(horas);
+
+
+                }
+            }
+        }
+
+
+        function excluir() {
+
+            travarSelecao();
+
+
+            var $instance = $('#divArvore').jstree(true);
+            var selZero = $instance.get_selected(true)[0];
+            if (selZero) {
+                var treeNode = $instance.get_node(selZero);
+
+                if (treeNode != null) {
+
+                    var id = treeNode.data.idnode;
+
+
+                    $("#txtId").val(id);
+
+
+
+                }
+            }
+
+            if (($('#txtId').val() || "") !== "") {
+                bootbox.confirm("Tem certeza que deseja excluir esse nó de projeto?", function (confirmado) {
+                    if (confirmado) {
+                        try {
+
+                            var iid = parseInt($('#txtId').val()||"0") || 0;
+
+
+                            $.ajax(
+                            {
+                                url: '@Url.Action("Delete")',
+                                type: 'DELETE',
+                                data: { id: iid },
+                                cache: false,
+                                success: function (result) {
+
+                                    destravarSelecao();
+
+                                    if (result.Sucesso) {
+
+
+                                        var $instance = $('#divArvore').jstree(true);
+                                        var $node = $instance.get_node('li' + iid);
+                                        $instance.delete_node($node);
+                                        $('#btExcluir').attr('disabled', 'disabled');
+                                        bootbox.alert(result.Mensagem);
+                                    }
+                                    else {
+                                        bootbox.alert(result.Mensagem);
+                                    }
+
+
+                                },
+                                error: function (request, textStatus, errorThrown) {
+
+                                    destravarSelecao();
+                                    bootbox.alert("Não foi possível excluir:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+
+                                }
+                            });
+                        }
+                        catch (e) {
+
+                            destravarSelecao();
+                            bootbox.alert("Não foi possível excluir porque: " + e.message);
+
+                        }
+                    }
+                });
+            }
+
+
+            return false;
+
+        }
+
+
+        function atribuirRecursos()
+        {
+
+
+            var $instance = $('#divArvore').jstree(true);
+            var selZero = $instance.get_selected(true)[0];
+            if (selZero) {
+                var treeNode = $instance.get_node(selZero);
+
+                if (treeNode != null) {
+
+                    var id = treeNode.data.idnode;
+                    var nome = treeNode.data.nodenome;
+
+                    $("#txtIdNode").val(id);
+                    $("#spHierarquia").text(nome);
+                    $("#IdsUsuarios").select2("val", "");
+
+                    try {
+                        $.ajax(
+                            {
+                                url: '@Url.Action("ObterRecursos")/' + id,
+                                type: 'GET',
+                                cache: false,
+                                success: function (result) {
+
+
+
+                                    if (result.Sucesso) {
+                                        $("#IdsUsuarios").val(result.Selecionados);
+                                        $("#IdsUsuarios").trigger('change');
+                                        $("#atribuirRecursosModal").modal({
+                                            backdrop: 'static',
+                                            keyboard: false
+                                        });
+                                    }
+                                    else {
+                                        bootbox.alert(result.Mensagem);
+                                    }
+
+
+                                },
+                                error: function (request, textStatus, errorThrown) {
+
+
+                                    bootbox.alert("Não foi possível salvar:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+
+                                }
+                            });
+                    }
+                    catch (err) {
+
+                        bootbox.alert("Não foi possível salvar porque: " + err.message);
+
+                    }
+                }
+            }
+        }
+
+
+        $(function () {
+
+            var $arvore = $('#divArvore')
+
+                .on('click', function (e) {
+                    e.stopPropagation();
+                })
+                .on('select_node.jstree', function (e, data)
+                {
+
+                    e.stopPropagation();
+
+                    var selecionados = data.selected;
+                    if (selecionados.length > 0)
+                    {
+                        var selZero = selecionados[0];
+                        if ((selZero != null) && (selZero != undefined))
+                        {
+                            var treeNode = data.instance.get_node(selZero);
+
+                            if (data.instance.is_leaf(treeNode))
+                            {
+                                $('#btExcluir').removeAttr("disabled");
+                                $('#btExcluir').removeClass("disabled");
+                            }
+                            else
+                            {
+                                $('#btExcluir').attr("disabled", "disabled");
+                                $('#btExcluir').addClass("disabled");
+                            }
+                        }
+                    }
+
+
+                })
+                .jstree({
+                    'types': {
+                        "folder": {
+                            "icon": "jstree-icon jstree-folder"
+                        },
+                        "file": {
+                            "icon": "jstree-icon jstree-file"
+                        }
+
+                    },
+                    "core": {
+                        "themes": { "stripes": true },
+                        "multiple": false,
+                        check_callback: function (operation, node, node_parent, node_position, more) {
+                            if (operation === 'move_node' && more && more.core)
+                            {
+                                var retornoMover = false;
+
+                                try {
+
+                                    if (node == null)
+                                        return false;
+
+                                    var iid = node.data.idnode;
+                                    var idpaiAntigo = node.data.idpai;
+                                    var idpai = 0;
+                                    if ((node_parent != null) && (node_parent.data != null) && (node_parent.id != "#")) {
+                                        idpai = node_parent.data.idnode;
+                                    }
+                                    node.data.idpai = idpai;
+                                    var posicao = node_position;
+
+                                    if (idpai === idpaiAntigo)
+                                        return false;
+
+                                    $.ajax(
+                                        {
+                                            url: '@Url.Action("Mover")',
+                                            type: 'POST',
+                                            async: false,
+                                            cache: false,
+                                            data: {
+                                                id: iid,
+                                                idNovoPai: idpai,
+                                                posicao: posicao
+                                            },
+                                            success: function (result) {
+
+                                                if (result.Sucesso) {
+                                                    retornoMover = true;
+
+                                                }
+                                                else {
+                                                    retornoMover = false;
+                                                    bootbox.alert(result.Mensagem);
+                                                }
+
+                                            },
+                                            error: function (request, textStatus, errorThrown) {
+
+                                                retornoMover = false;
+                                                bootbox.alert("Não foi possível mover:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+
+                                            }
+                                        });
+
+                                    return retornoMover;
+                                }
+                                catch (err)
+                                {
+                                    bootbox.alert(err.message);
+                                    return false;
+                                }
+
+                            }
+
+                            return true;
+                        }
+                    },
+
+                    plugins: ["contextmenu", "dnd", "types", "search"], contextmenu: { items: customMenu }
+                }).bind("move_node.jstree", function (e, data) {
+
+
+
+                });
+
+
+
+
+            function customMenu(node) {
+                var items = {
+                    novoItemRaiz: {
+                        label: "Nova Raiz",
+                        icon: '/Content/images/new_folder.png',
+                        action: function () {
+                            $('#divArvore').jstree("deselect_all");
+                            destravarNovo();
+                            $("#txtIdPai").val(0);
+                            $("#txtId").val(0);
+                            $("#editarModal").modal('show');
+                        }
+                    },
+
+                    novoItem: {
+                        label: "Novo",
+                        icon: '/Content/images/create.png',
+                        action: function () {
+                            destravarNovo();
+                            $("#editarModal").modal('show');
+                        }
+                    },
+
+
+                    editarItem: {
+                        label: "Editar",
+                        icon: '/Content/images/update.png',
+                        action: function () {
+                            editar();
+                            $("#editarModal").modal('show');
+                        }
+                    },
+                    deleteItem: {
+                        label: "Excluir",
+                        icon: '/Content/images/delete.png',
+                        action: function () {
+                            excluir();
+                        }
+                    },
+                    atribuirRecursos: {
+                        label: "Atribuir Recursos",
+                        icon: '/Content/images/worker.png',
+                        action: function () {
+                            atribuirRecursos();
+                        }
+                    }
+                };
+                var $instance = $('#divArvore').jstree(true);
+                if (!$instance.is_leaf(node)) {
+                    delete items.deleteItem;
+                }
+
+                return items;
+            }
+
+            $('#btSalvar').click(function (e) {
+                e.preventDefault();
+
+                var $form = $("#frmProjeto");
+                $.validator.unobtrusive.parse($form);
+                $form.validate();
+
+                if (!$form.valid())
+                {
+                    destravarSalvar();
+                    return false;
+                }
+                else if ($form.valid())
+                {
+                    try {
+
+                        var iid = parseInt($('#txtId').val()||"0")||0;
+
+                        var dados = {
+                            Id: iid,
+                            Nome: $('#txtNome').val(),
+                            Descricao: $('#txtDescricao').val(),
+                            HorasEstimadas:parseInt($('#txtHoras').val()),
+                            IdPai: $('#txtIdPai').val(),
+                            IdNodeLabel:parseInt($('#txtIdNodeLabel').val())
+                        };
+
+                        travarSelecao();
+
+
+                        $.ajax(
+                        {
+                            url: '@Url.Action("Salvar")',
+                            type: 'POST',
+                            data: dados,
+                            cache: false,
+                            success: function (result) {
+
+                                destravarSelecao();
+                                $("#editarModal").modal('hide');
+
+                                if (result.Sucesso)
+                                {
+
+
+                                    var $instance = $('#divArvore').jstree(true);
+                                    if (iid == null || iid == "" || iid == 0)
+                                    {
+                                        iid = result.Objeto.Id;
+
+                                        var $novo = {
+                                            "state": "open",
+                                            "id": "li" + iid,
+                                            "text": "<strong>" + result.Objeto.NomeNodeLabel + "</strong>" + ":" + result.Objeto.Nome,
+                                            "icon":"jstree-icon jstree-file",
+                                            data: {
+                                                "nodelabelid": result.Objeto.IdNodeLabel,
+                                                "nodelabelnome": result.Objeto.NomeNodeLabel,
+                                                "nodenome": result.Objeto.Nome,
+                                                "nodedescricao": result.Objeto.Descricao,
+                                                "idnode": result.Objeto.Id,
+                                                "nodehoras": result.Objeto.HorasEstimadas
+                                            }
+                                        };
+
+                                        var position = 'inside';
+                                        var selecionado = $('#divArvore').jstree('get_selected');
+
+                                        if (selecionado == null || selecionado.length == 0)
+                                            selecionado = "#";
+
+                                        if (selecionado.length > 0) {
+                                            selecionado = selecionado[selecionado.length - 1];
+                                        }
+
+
+                                        $('#divArvore').jstree("create_node", selecionado, $novo, position, function (ev, data) {
+
+                                            $('#divArvore').jstree("deselect_all");
+                                            $("#divArvore").jstree("open_node", ev.parent);
+                                            $("#divArvore").jstree("select_node", ev);
+
+                                        }, true);
+
+                                    }
+                                    else
+                                    {
+
+                                        var $node = $instance.get_node('li' + iid);
+
+                                        $node.data.nodelabelid = result.Objeto.IdNodeLabel;
+                                        $node.data.nodelabelnome = result.Objeto.NomeNodeLabel;
+                                        $node.data.nodenome = result.Objeto.Nome;
+                                        $node.data.nodedescricao = result.Objeto.Descricao;
+                                        $node.data.idnode = result.Objeto.Id;
+                                        $node.data.nodehoras = result.Objeto.HorasEstimadas;
+
+                                        $("#divArvore").jstree('rename_node', $node, "<strong>" + result.Objeto.NomeNodeLabel + "</strong>" + ":" + result.Objeto.Nome);
+                                    }
+
+                                    bootbox.alert(result.Mensagem);
+                                }
+                                else {
+
+                                    bootbox.alert(result.Mensagem);
+                                }
+
+
+                            },
+                            error: function (request, textStatus, errorThrown) {
+
+                                destravarSelecao();
+                                $("#editarModal").modal('hide');
+                                bootbox.alert("Não foi possível salvar:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+
+                            }
+                        });
+                    }
+                    catch (e) {
+
+                        destravarSelecao();
+                        $("#editarModal").modal('hide');
+                        bootbox.alert("Não foi possível salvar porque: " + e.message);
+
+                    }
+                }
+
+
+
+
+                return false;
+
+            });
+
+            $('#btExcluir').click(function (e)
+            {
+                e.preventDefault();
+                excluir();
+            });
+
+
+
+            $("#divPainel").click( function (e) {
+                $('#divArvore').jstree("deselect_all");
+                destravarNovo();
+                e.stopPropagation();
+                return false;
+            });
+
+            $("#divFormulario").click(function (e) {
+                e.stopPropagation();
+                return false;
+            });
+
+
+
+            $(".btSalvarRecursos").click(function (e)
+            {
+                try
+                {
+
+
+                    var iid = parseInt($('#txtIdNode').val() || "0") || 0;
+                    var selections = $("#IdsUsuarios").select2('data');
+                    var idsUsuarios = new Array();
+                    var adicionarRecursivo = $(this).val();
+                    $(selections).each(function (k, v) {
+                        idsUsuarios.push(v.id);
+                    });
+
+                        var dados = {
+                            IdNode: iid,
+                            AdicionarRecursivo: adicionarRecursivo,
+                            IdsUsuarios: idsUsuarios
+                        };
+
+
+
+
+                        $.ajax(
+                        {
+                            url: '@Url.Action("AdicionarRecursos")',
+                            type: 'POST',
+                            data: dados,
+                            cache: false,
+                            success: function (result)
+                            {
+
+                                $("#atribuirRecursosModal").modal('hide');
+
+                                if (result.Sucesso)
+                                {
+                                    bootbox.alert(result.Mensagem);
+                                }
+                                else
+                                {
+                                    bootbox.alert(result.Mensagem);
+                                }
+
+
+                            },
+                            error: function (request, textStatus, errorThrown)
+                            {
+
+                                $("#atribuirRecursosModal").modal('hide');
+                                bootbox.alert("Não foi possível salvar:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+
+                            }
+                        });
+                }
+                catch (err)
+                {
+
+                    $("#atribuirRecursosModal").modal('hide');
+                    bootbox.alert("Não foi possível salvar porque: " + err.message);
+
+                }
+            });
+
+
+            $("#btBuscar").click(function () {
+                $("#buscaModal").modal('show');
+            });
+
+
+
+
+            var $tblLista = $('#tblLista').DataTable(
+            {
+                pageLength: 10,
+                lengthChange: false,
+                columnDefs:
+                [
+
+                    { orderable: false, targets: [1, 3] },
+                    { targets: [1], visible: false },
+                    {
+                        targets: [2], "render": function (data, type, row, meta) {
+                            
+                            return '<strong>' + row[1] + ':</strong> ' + data;
+                        }
+                    },
+                    {
+                        targets: [3], "render": function (data, type, row, meta) {
+
+                            return "<button type='button' class='btn btn-primary btPin' data-nodetext='"+row[2]+"' data-nodeid='"+data+"' value='"+data+"'><span class='glyphicon glyphicon-pushpin'></span></button>";
+                        }
+                    }
+                ],
+                processing: true,
+                serverSide: true,
+                "columns": [
+                    { "data": "0", "name": "Id" },
+                    { "data": "1", "name": "Label" },
+                    { "data": "2", "name": "Nome" },
+                    { "data": "3", "name": "Pin", className: "text-center" }],
+                ajax: '/projecttreeview/Buscar/',
+                sDom: 'tp',
+                stateSave: true,
+                language:
+                {
+                    "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                }
+            });
+
+
+
+            $('#txtBusca').keyup(function () {
+                $tblLista.search($(this).val()).draw();
+            });
+
+
+            $(document).on("click", ".btPin", function () {
+                var nodeid = $(this).val();
+                var nodetext = $(this).data("nodetext");
+                var elementid = 'li' + nodeid;
+                $('#divArvore').jstree('close_all');
+                $('#divArvore').jstree('select_node', elementid);
+                $('#divArvore').jstree(true).search(nodetext, false, true);
+                $("#buscaModal").modal('hide');
+            });
+
+
+            var to = false;
+            $('#txtBuscaTree').keyup(function () {
+                if (to) { clearTimeout(to); }
+                to = setTimeout(function () {
+                    var v = $('#txtBuscaTree').val();
+                    $('#divArvore').jstree(true).search(v, false, true);
+                }, 250);
+            });
+        });
+    </script>
+}
+
+
+
+
+
+<h2>Projetos</h2>
+
+<div class="container-fluid bordered spacer" id="divPainel">
+    <div class="row">
+        <div class="col-sm-9 text-right">
+            <input type="text" id="txtBuscaTree" placeholder="busca comum" class="form-control" />
+        </div>
+        <div class="col-sm-3 text-right">
+            <button type="button" id="btBuscar" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Busca Avançada</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="divTreeContainer" class="container-fluid bordered spacer" style="overflow:auto; min-height:220px !important;">
+                <div id="divArvore">
+
+                    @Model
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="editarModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="editarModalLabel">
+                    Preencha e Salve
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid bordered spacer">
+                    <div class="form-horizontal">
+                        <form id="frmProjeto" method="get" action="#">
+                            <fieldset>
+                                <input id="txtId" name="txtId" type="hidden" />
+                                <input id="txtIdPai" name="txtIdPai" type="hidden" />
+
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <label for="txtIdNodeLabel" class="control-label input-group-addon">Rótulo</label>
+                                        @Html.DropDownList("txtIdNodeLabel", ViewBag.Labels as SelectList, string.Empty, new { id = "txtIdNodeLabel", @class = "form-control  tfw_select2", data_val = "true", data_val_required = "O rótulo de nível é obrigatório" })
+                                    </div>
+                                    <span class="field-validation-valid" data-valmsg-for="txtIdNodeLabel" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <label for="txtNome" class="control-label input-group-addon">Nome</label>
+                                        <input id="txtNome" name="txtNome" maxlength="100" class="form-control" type="text" data-val="true" , data-val-required="O nome é obrigatório" data-val-length-max="100" data-val-length="O nome deve ter no máximo 100 caracteres " />
+                                    </div>
+                                    <span class="field-validation-valid" data-valmsg-for="txtNome" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <label for="txtDescricao" class="control-label input-group-addon">Descrição</label>
+                                        <textarea id="txtDescricao" name="txtDescricao" class="form-control" type="text" data-val="true"  data-val-length-max="500" data-val-length="Máximo 500 caracteres" maxlength="500" ></textarea>
+                                    </div>
+                                    <span class="field-validation-valid" data-valmsg-for="txtDescricao" data-valmsg-replace="true"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <label for="txtHoras" class="control-label input-group-addon">Horas</label>
+                                        <input id="txtHoras" name="txtHoras" class="form-control tfw_integer" type="text" data-val="true" , data-val-required="O número de horas é obrigatório" data-val-number="Horas deve ser um número válido" />
+                                    </div>
+                                    <span class="field-validation-valid" data-valmsg-for="txtHoras" data-valmsg-replace="true"></span>
+                                </div>
+
+
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button style="display:none;" disabled="disabled" id="btExcluir" class="btn btn-danger cancel ">Excluir <span class="glyphicon glyphicon-remove"></span></button>
+                <button id="btSalvar" class="btn btn-primary cancel">Salvar <span class="glyphicon glyphicon-floppy-disk"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="atribuirRecursosModal" role="dialog" aria-labelledby="atribuirRecursosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="atribuirRecursosLabel">
+                    Atribuir Recursos
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid bordered spacer">
+                    <div class="form-horizontal">
+                        <form id="frmRecursos" method="post" action="#">
+                            <fieldset>
+
+                                <input id="txtIdNode" name="IdNode" type="hidden" />
+
+                                <div class="row sp-vertical">
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+
+
+                                            @Html.Label("IdsUsuarios", "Usuários", htmlAttributes: new { @class = "control-label input-group-addon" })
+                                            @Html.ListBox("IdsUsuarios", Colecoes.GetUsuariosMultiplos(), new { @class = "form-control  tfw_select2", id = "IdsUsuarios" })
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row sp-vertical">
+                                    <div class="col-sm-12">
+                                        <p>
+                                        
+                                            Deseja adicionar todos os itens da hierarquia <strong><span id="spHierarquia"></span></strong>?
+                                        
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-3 text-left">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" title="não adicionar recursos">Cancelar</button>
+                </div>
+
+                <div class="col-sm-9 text-right">
+                    <button type="submit" value="false" name="AdicionarRecursivo" class="btn btn-primary cancel btSalvarRecursos" id="btAdicionarEste" title="Adicionar recursos somente a este nó">Não <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                    <button type="submit" value="true" name="AdicionarRecursivo" class="btn btn-primary cancel btSalvarRecursos" id="btAdicionarRecursivo" title="Adicionar recursos à toda a estrutura">Sim <span class="glyphicon glyphicon-floppy-save"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="buscaModal" role="dialog" aria-labelledby="buscaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="buscaLabel">
+                    Busca por nome ou id
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid bordered spacer">
+                    <div class="form-horizontal">
+                        <form id="frmRecursos" method="post" action="#">
+                            <fieldset>
+
+                                <input id="txtIdNode" name="IdNode" type="hidden" />
+
+                                <div class="row sp-vertical">
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+
+
+                                            @Html.Label("txtBusca", "Busca", htmlAttributes: new { @class = "control-label input-group-addon" })
+                                            @Html.TextBox("txtBusca", "", new { @class = "form-control", id = "txtBusca", placeholder="buscar" })
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row sp-vertical">
+                                    <div class="col-sm-12">
+                                        <table id="tblLista" class="table table-striped table-bordered tfw_grid" style="width:100%;" >
+                                            <thead>
+                                                <tr>
+                                                    <th class="controles">
+                                                        Id
+                                                    </th>
+                                                    <th>
+                                                        Label
+                                                    </th>
+                                                    <th>
+                                                        Nome
+                                                    </th>
+                                                    <th class="controles text-center" width="5%">
+                                                        <span class="glyphicon glyphicon-pushpin"></span>
+                                                   </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td >
+                                                        Id
+                                                    </td>
+                                                    <td>
+                                                        Label
+                                                    </td>
+                                                    <td>
+                                                        Nome
+                                                    </td>
+                                                    <td class="text-center"  style="text-align:center">
+                                                        <span class="glyphicon glyphicon-pushpin"></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-3 text-left">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" title="não adicionar recursos">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

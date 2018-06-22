@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Falha de logon";
+}
+
+<hgroup>
+    <h2>@ViewBag.Title.</h2>
+    <h3 class="text-danger">Falha ao fazer logon no serviço.</h3>   
+</hgroup>
+<p class="text-danger">@(TempData["Detalhes"] != null ? TempData["Detalhes"] : "")</p>

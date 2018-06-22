@@ -1,0 +1,209 @@
+﻿@using TPA.Presentation.Util;
+@using TFW.Domain
+@using TPA.ViewModel
+@using TPA.Services.Seguranca
+
+
+@{
+    ViewBag.Title = "Nova Atividade";
+}
+
+<h2>Nova Atividade</h2>
+
+
+
+
+
+
+
+    <div >
+        <div class="text-right" >
+            @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+        </div>
+
+    </div> 
+
+    <div id="atividadeEditor" class="container-fluid bordered spacer" style="display:none;">
+
+        @{Html.RenderPartial("~/views/shared/EditorTemplates/AtividadeAjaxViewModel.cshtml", new AtividadeAjaxViewModel() { Data = DateTime.Today }); }
+        @{Html.RenderPartial("~/views/shared/EditorTemplates/AtividadeAjaxViewModel.cshtml", new AtividadeAjaxViewModel() { Data = DateTime.Today }); }
+
+    </div>
+
+    <div class="form-group text-left col-sm-12">
+        <button type="button" id="btnAdicionar"  class="btn btn-primary cancel">Nova Atividade</button>
+        <button type="button" id="btnLimparResetar" class="btn btn-primary cancel">Limpar e Resetar</button>
+    </div>
+
+
+
+
+<hr/>
+
+
+
+@section scripts
+{
+    <style type="text/css">
+        span.form-control {
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow:hidden;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        $(function () {
+
+            var adicionaForm = function () {
+                $.ajax({
+                    url: "/home/AdicionarLinhaDeAtividade/",
+                    async: true,
+                    cache: false,
+                    timeout: 60000,
+                    success: function (html) {
+                        $("#atividadeEditor").append(html);
+
+                        InicializaTFWWidgets();
+                        $("form").removeData("validator");
+                        $("form").removeData("unobtrusiveValidation");
+                        $.validator.unobtrusive.parse("form");
+
+                    },
+                    error: function (request, textStatus, errorThrown)
+                    {
+                        if (textStatus === 'parsererror')
+                        {
+                                bootbox.alert('A página retornou um objeto inválido.');
+                        }
+                        else if (textStatus === 'timeout')
+                        {
+                                bootbox.alert('Tempo limite para operação excedido.');
+                        }
+                        else if (textStatus === 'abort')
+                        {
+                                bootbox.alert('Requisição cancelada pelo usuário.');
+                        }
+                        else if (request.status === 401) {
+                            window.location.href = '/home/index/';
+                        }
+                        else if (request.status === 302) {
+                            window.location.href = '/home/index/';
+                        }
+                        else if (request.status === 0) {
+                            window.location.href = '/home/index/';
+                        }
+                        else
+                        {
+                            bootbox.alert("Não foi possível criar formulário:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+                        }
+                    }
+                });
+            };
+
+
+
+            $("#btnAdicionar").click(function () {
+                adicionaForm();
+                return false;
+            });
+
+            $("#btnLimparResetar").click(function () {
+
+                $("form").fadeTo(1000, 0.1, "swing", function () {
+                    $(this).remove();
+                });
+
+                adicionaForm();
+                adicionaForm();
+
+                return false;
+            });
+
+
+
+            //var custom_event = $.support.touch ? "tap" : "click";
+            $("body").on("tap click", "button.salvar", function () {
+
+                var idForm = "#frm" + $(this).data("formid");
+                if ($(idForm).valid())
+                {
+
+                    
+                    var formData = $(idForm).serializeArray();
+                    formData.push({name:'@AntiForgeryConfig.CookieName', value:'@JsonAntiforgeryHelpers.GetFormToken()'});
+                    var dados = $.param(formData);
+
+                    $.ajax({
+                        url: "/home/CreateAjax/",
+                        async: true,
+                        cache: false,
+                        timeout: 60000,
+                        type: 'POST',
+                        data: dados,
+                        success: function (html) {
+                            $(idForm).addClass("salvo");
+                            $(idForm).empty().append(html);
+
+                            InicializaTFWWidgets();
+                            $("form").removeData("validator");
+                            $("form").removeData("unobtrusiveValidation");
+                            $.validator.unobtrusive.parse("form");
+
+                            $(".alert.alert-success ").fadeTo(2000, 0.1, "swing",function () {
+                                $(this).remove();
+                            });
+                        },
+                        error: function (request, textStatus, errorThrown)
+                        {
+                            if (textStatus === 'parsererror')
+                            {
+                                    bootbox.alert('A página retornou um objeto inválido.');
+                            }
+                            else if (textStatus === 'timeout')
+                            {
+                                    bootbox.alert('Tempo limite para operação excedido.');
+                            }
+                            else if (textStatus === 'abort')
+                            {
+                                    bootbox.alert('Requisição cancelada pelo usuário.');
+                            }
+                            else if (request.status === 401) {
+                                window.location.href = '/home/index/';
+                            }
+                            else if (request.status === 302) {
+                                window.location.href = '/home/index/';
+                            }
+                            else if (request.status === 0) {
+                                window.location.href = '/home/index/';
+                            }
+                            else
+                            {
+                                bootbox.alert("Não foi possível salvar:<br/> " + textStatus + "<br/>" + errorThrown + "<br/>" + request.responseText);
+                            }
+                        }
+
+                    });
+                }
+            });
+
+
+            $("body").on("tap click", "button.remover", function () {
+                var idForm = "#frm" + $(this).data("formid");
+                $(idForm).fadeTo(1000, 0.1, "swing", function () {
+                    $(idForm).remove();
+                });
+            });
+
+
+            $("#atividadeEditor").show("slow", function () {
+
+            });
+
+        });
+    </script>
+
+
+}
+

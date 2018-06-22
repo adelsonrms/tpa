@@ -1,0 +1,224 @@
+﻿@using TPA.Services.Seguranca
+@using TPA.Presentation.Util;
+@using TPA.ViewModel.Buscas
+@using TPA.Framework
+
+@model TPA.ViewModel.AtividadeIndexViewModel
+
+@{
+    ViewBag.Title = "Página Inicial";
+}
+
+
+@section scripts
+{
+
+    <script type="text/javascript">
+        $(function ()
+        {
+
+            var $tblLista = $('#tblLista').DataTable(
+            {
+                pageLength: 10,
+                lengthChange: false,
+                columnDefs:
+                [
+                      {
+                          'targets': 0,
+                          'checkboxes': {
+                              'selectRow': true
+                          }
+                      },
+                    { orderable: false, targets: [0,9] },
+                    { orderable: true, targets: 5, iDataSort: 9 },
+                    { visible: false, targets: [9] }
+
+                ],
+                sDom: 'ftp' ,
+                stateSave: true,
+                language:
+                {
+                    "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                },
+                'select': {
+                    'style': 'multi'
+                },
+                'order': [[5, 'desc']]
+
+            });
+
+
+
+            $('#frmDeleteMultiplo').on('submit', function (e) {
+                var form = this;
+                
+                var rows_selected = $tblLista.column(0).checkboxes.selected();
+                
+
+                $.each(rows_selected, function (index, rowId) {
+
+                    $(form).append(
+                        $('<input>')
+                           .attr('type', 'hidden')
+                           .attr('name', 'ids')
+                           .val(rowId)
+                    );
+                });
+            });
+
+        });
+    </script>
+
+    <style>
+        input[type=checkbox]
+        {
+            width:20px;
+            height:20px;
+        }
+    </style>
+
+}
+
+<h1>Tecnun Projetos e Apontamentos</h1>
+
+
+
+
+
+
+<div class="container-fluid bordered spacer" id="divFormulario">
+    <div class="form-horizontal">
+        @using (Html.BeginForm("BuscaDeleteMultiplo", "Atividades", FormMethod.Get))
+        {
+            var abvm = (Session["abvm"] as AtividadeBuscaStringViewModel) ?? new AtividadeBuscaStringViewModel();
+
+                    <fieldset>
+
+                        <div class="row sp-vertical">
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <label for="DataInicio" class="control-label input-group-addon">Data Inicial</label>
+                                    @Html.TextBox("DataInicio", abvm.DataInicio, new { id = "DataInicio", @class = "form-control tfw_datepicker disabled", @readonly = "true" })
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <label for="DataFim" class="control-label input-group-addon">Data Final</label>
+                                    @Html.TextBox("DataFim", abvm.DataFim, new { id = "DataFim", @class = "form-control tfw_datepicker disabled", @readonly = "true" })
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row sp-vertical">
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <label for="IdUsuario" class="control-label input-group-addon">Funcionário</label>
+                                    @Html.ListBox("IdUsuario", ViewBag.Usuarios as MultiSelectList, new { id = "IdUsuario", @class = "form-control  tfw_select2" })
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-sm-4 text-right pull-right">
+                                <input type="submit" name="btPesquisar" value="Pesquisar" class="btn btn-primary" />
+                                @Html.ActionLink("Nova Atividade", "Create", null, new { @class = "btn btn-primary" })
+                            </div>
+
+                        </div>
+
+
+
+                    </fieldset>
+
+        }
+    </div>
+</div>
+
+
+<div class="container-fluid bordered" id="divFormulario">
+
+    <h3>Atividades Detalhadas</h3>
+
+    
+
+@using (Html.BeginForm("ConfirmaDeleteMultiplo", "Atividades", FormMethod.Post, new { id = "frmDeleteMultiplo" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row sp-vertical">
+        <div class="col-sm-12">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="tblLista" class="table table-striped table-bordered tfw_grid" style="width:100%;" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Excluir</th>
+                                    <th>Funcionário</th>
+                                    <th>Projeto</th>
+                                    <th>Atividade</th>
+                                    <th>Observacao</th>
+                                    <th>Data</th>
+                                    <th>Início</th>
+                                    <th>Fim</th>
+                                    <th>Duração</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var a in Model.Atividades)
+                                {
+                                    <tr data-id="@a.Id">
+                                        <td>@a.Id</td>
+                                        <td>@a.UsuarioFuncionarioNome</td>
+                                        <td>@a.ProjectNodeNome</td>
+                                        <td>@a.TipoAtividadeNome</td>
+                                        <td>@a.Observacao</td>
+                                        <td>@a.Inicio.ToString("dd/MM/yyyy")</td>
+                                        <td>@a.Inicio.ToString("HH:mm")</td>
+                                        <td>@a.Fim.ToString("HH:mm")</td>
+                                        <td>
+                                            @(((TimeSpan)(a.Fim - a.Inicio)).TimeSpanToString())
+                                        </td>
+                                        <td>@a.Inicio.ToString("yyyy-MM-dd")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row sp-vertical">
+                    <div class="col-sm-12">
+                        <input type="submit" value="Excluir todos os selecionados" class="btn btn-danger" />
+                    </div>
+                </div>
+
+                <div class="row sp-vertical">
+                    <div class="col-sm-12">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+}
+
+
+
+</div>

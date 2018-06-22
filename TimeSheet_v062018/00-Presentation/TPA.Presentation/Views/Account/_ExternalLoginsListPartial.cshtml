@@ -1,0 +1,29 @@
+﻿@model TPA.Presentation.Models.ExternalLoginListViewModel
+@using Microsoft.Owin.Security
+
+<h4>Use o ambiente da Tecnun ou Microsoft para fazer login.</h4>
+<hr />
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    if (loginProviders.Count() > 0)
+    {
+
+        using (Html.BeginForm("ExternalLogin", "Account", FormMethod.Post, new { ReturnUrl = Model.ReturnUrl }))
+        {
+
+            <div id="socialLoginList">
+                <p>
+                    @foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        <span class="sp-vertical">
+                            <button type="submit" class="btn btn-lg  btn-primary btn-block" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Faça login usando sua conta @p.Caption">@(p.AuthenticationType == "OpenIdConnect" ? "Login Tecnun" : p.AuthenticationType)</button><br />
+                        </span>
+                        
+                    }
+                </p>
+            </div>
+        }
+
+    }
+
+}

@@ -1,0 +1,40 @@
+﻿@model TPA.Domain.DomainModel.ProjectNode
+
+@{
+    ViewBag.Title = "Excluir nó de projeto";
+}
+
+<h2>Nó de projeto</h2>
+
+<h3>Você tem certeza que deseja excluir este registro?</h3>
+<div class="container-fluid  spacer text-left" >
+
+    <hr />
+    <dl class="dl-horizontal  bordered spacer">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorasEstimadas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorasEstimadas)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> 
+            @Html.ActionLink("Voltar à lista", "Index", null, new {@class="btn btn-primary" })
+        </div>
+    }
+</div>

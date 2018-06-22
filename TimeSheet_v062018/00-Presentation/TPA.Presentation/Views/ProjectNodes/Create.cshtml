@@ -1,0 +1,88 @@
+﻿@model TPA.ViewModel.ProjectNodeViewModel
+
+@{
+    ViewBag.Title = "Criar nó de projeto";
+}
+
+<h2>Criar nó de projeto</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div >
+        <div class="row">
+            <div class="col-sm-10">
+                @if ((Model.Pai != null) && (Model.Pai.NodeLabel != null))
+                {
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label class="control-label input-group-addon">@Html.DisplayFor(model => model.Pai.NodeLabel.Nome)</label>
+                            <span class="form-control">@Html.DisplayFor(model => model.Pai.Nome)</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-2 text-right">
+                @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid bordered spacer" >
+
+        <div class="form-horizontal">
+            <fieldset>
+
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.IdPai)
+
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.IdNodeLabel, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.DropDownListFor(model => model.IdNodeLabel, ViewBag.Labels as SelectList, string.Empty, new { @class = "form-control  tfw_select2" })
+                    </div>
+
+
+                    @Html.ValidationMessageFor(model => model.IdNodeLabel, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+
+
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.HorasEstimadas, htmlAttributes: new { @class = "control-label  input-group-addon" })
+                        @Html.TextBoxFor(model => model.HorasEstimadas, new { @class = "form-control tfw_integer" })
+                    </div>
+
+
+                    @Html.ValidationMessageFor(model => model.HorasEstimadas, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group  text-right">
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                </div>
+            </fieldset>
+
+        </div>    
+    
+    </div>
+
+
+}
+

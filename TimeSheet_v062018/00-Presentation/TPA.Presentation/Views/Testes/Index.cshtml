@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de links de testes</h2>
+
+
+
+<h3>Custom Errors</h3>
+@Html.ActionLink("Divisão por zero", "divzero", "Testes") <br/>
+@Html.ActionLink("action não existente", "zica", "Testes") <br />
+@Html.ActionLink("Proibido com HttpStatusCodeResult", "proibido1", "Testes") <br />
+@Html.ActionLink("Proibido com HttpException", "proibido2", "Testes") <br />
+@Html.ActionLink("Not Found com HttpNotFound()", "notfound1", "Testes") <br />
+@Html.ActionLink("Not Found com HttpNotFoundResult()", "notfound2", "Testes") <br />
+@Html.ActionLink("Not found com HttpException", "notfound3", "Testes") <br />
+@Html.ActionLink("Bad request com HttpStatusCodeResult", "badrequest1", "Testes") <br />
+@Html.ActionLink("Bad request com HttpException", "badrequest2", "Testes") <br />
+@Html.ActionLink("Página de ações, normal, de acordo com seu perfil", "Index", "Acao") <br />

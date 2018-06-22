@@ -1,0 +1,1959 @@
+Data: 2017-11-08 17:28:47-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\8a823154\f759e428\App_Web_error.cshtml.62599428.3u6dhqrx.0.cs(32): error CS0234: O nome do namespace ou o tipo 'Models' não existe no namespace 'TPA'. Precisa de uma referência de assembly?
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Compilation.AssemblyBuilder.Compile()
+   em System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   em System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   em System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   em System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   em System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.OnAsyncHandlerCompletion(IAsyncResult ar)
+================================================================================
+Data: 2017-11-08 17:28:51-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\8a823154\f759e428\App_Web_error.cshtml.62599428.5bwvdhux.0.cs(32): error CS0234: O nome do namespace ou o tipo 'Models' não existe no namespace 'TPA'. Precisa de uma referência de assembly?
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   em System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   em System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   em System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-08 17:38:35-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+z:\Apontamentos\Branches\camadas\00-Presentation\TPA.Presentation\Views\Error\Error.cshtml(26): error CS0234: O nome do namespace ou o tipo 'Servicos' não existe no namespace 'TPA.Application'. Precisa de uma referência de assembly?
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Compilation.AssemblyBuilder.Compile()
+   em System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   em System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   em System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   em System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   em System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.OnAsyncHandlerCompletion(IAsyncResult ar)
+================================================================================
+Data: 2017-11-08 17:38:42-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+z:\Apontamentos\Branches\camadas\00-Presentation\TPA.Presentation\Views\Error\Error.cshtml(26): error CS0234: O nome do namespace ou o tipo 'Servicos' não existe no namespace 'TPA.Application'. Precisa de uma referência de assembly?
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   em System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   em System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   em System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-09 17:20:17-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'zica' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.TestesController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-09 17:32:11-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Automatic migrations that affect the location of the migrations history system table (such as default schema changes) are not supported. Please use code-based migrations for operations that affect the location of the migrations history system table.
+Source:-------------------------------------------------------------------------
+EntityFramework
+StackTrace:---------------------------------------------------------------------
+   em System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   em System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   em System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   em System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClasse.<Update>b__d()
+   em System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   em System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   em System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   em System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   em System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   em System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   em System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   em System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   em System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   em System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   em System.Data.Entity.Internal.InternalContext.Initialize()
+   em System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   em System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   em System.Data.Entity.Internal.Linq.InternalSet`1.Include(String path)
+   em System.Data.Entity.Infrastructure.DbQuery`1.Include(String path)
+   em System.Data.Entity.QueryableExtensions.Include[T](IQueryable`1 source, String path)
+   em System.Data.Entity.QueryableExtensions.Include[T,TProperty](IQueryable`1 source, Expression`1 path)
+   em TPA.Presentation.Seguranca.ControleAcesso.PodeAcessar(String nomePermissao) na Z:\Apontamentos\Branches\camadas\00-Presentation\TPA.Presentation\Seguranca\ControleAcesso.cs:linha 46
+   em TPA.Presentation.Seguranca.ControleAcesso.PodeAcessar(String controllerName, String actionName) na Z:\Apontamentos\Branches\camadas\00-Presentation\TPA.Presentation\Seguranca\ControleAcesso.cs:linha 39
+   em TPA.Presentation.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\Apontamentos\Branches\camadas\00-Presentation\TPA.Presentation\Seguranca\TPAAuthorizeAttribute.cs:linha 26
+================================================================================
+Data: 2017-11-24 02:13:22-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Ocorreu um erro ao tentar criar um controlador do tipo 'TPA.Presentation.Controllers.HomeController'. Verifique se o controlador tem um construtor público sem parâmetros.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+Mensagem:-----------------------------------------------------------------------
+Uma exceção foi acionada pelo destino de uma chamada.
+Source:-------------------------------------------------------------------------
+mscorlib
+StackTrace:---------------------------------------------------------------------
+   em System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   em System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   em System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   em System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   em System.Activator.CreateInstance(Type type)
+   em System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)
+Mensagem:-----------------------------------------------------------------------
+The default DbConfiguration instance was used by the Entity Framework before the 'CustomHistoryConfiguration' type was discovered. An instance of 'CustomHistoryConfiguration' must be set at application start before using any Entity Framework features or must be registered in the application's config file. See http://go.microsoft.com/fwlink/?LinkId=260883 for more information.
+Source:-------------------------------------------------------------------------
+EntityFramework
+StackTrace:---------------------------------------------------------------------
+   em System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationManager.EnsureLoadedForAssembly(Assembly assemblyHint, Type contextTypeHint)
+   em System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationManager.EnsureLoadedForContext(Type contextType)
+   em System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   em System.Data.Entity.DbContext..ctor(String nameOrConnectionString)
+   em TPA.Infra.Data.TPAContext..ctor() na Z:\TeamTecnun\Apontamentos\Branches\novologin\03-Infra\TPA.Infra\Data\TPAContext.cs:linha 43
+   em TPA.Presentation.Controllers.TPAController..ctor() na Z:\TeamTecnun\Apontamentos\Branches\novologin\00-Presentation\TPA.Presentation\Controllers\TPAController.cs:linha 8
+   em TPA.Presentation.Controllers.HomeController..ctor()
+================================================================================
+Data: 2017-11-24 02:13:25-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Ocorreu um erro ao tentar criar um controlador do tipo 'TPA.Presentation.Controllers.ErrorController'. Verifique se o controlador tem um construtor público sem parâmetros.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+Mensagem:-----------------------------------------------------------------------
+Uma exceção foi acionada pelo destino de uma chamada.
+Source:-------------------------------------------------------------------------
+mscorlib
+StackTrace:---------------------------------------------------------------------
+   em System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   em System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   em System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   em System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   em System.Activator.CreateInstance(Type type)
+   em System.Web.Mvc.DefaultControllerFactory.DefaultControllerActivator.Create(RequestContext requestContext, Type controllerType)
+Mensagem:-----------------------------------------------------------------------
+The default DbConfiguration instance was used by the Entity Framework before the 'CustomHistoryConfiguration' type was discovered. An instance of 'CustomHistoryConfiguration' must be set at application start before using any Entity Framework features or must be registered in the application's config file. See http://go.microsoft.com/fwlink/?LinkId=260883 for more information.
+Source:-------------------------------------------------------------------------
+EntityFramework
+StackTrace:---------------------------------------------------------------------
+   em System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationManager.EnsureLoadedForAssembly(Assembly assemblyHint, Type contextTypeHint)
+   em System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationManager.EnsureLoadedForContext(Type contextType)
+   em System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   em System.Data.Entity.DbContext..ctor(String nameOrConnectionString)
+   em TPA.Infra.Data.TPAContext..ctor() na Z:\TeamTecnun\Apontamentos\Branches\novologin\03-Infra\TPA.Infra\Data\TPAContext.cs:linha 43
+   em TPA.Presentation.Controllers.TPAController..ctor() na Z:\TeamTecnun\Apontamentos\Branches\novologin\00-Presentation\TPA.Presentation\Controllers\TPAController.cs:linha 8
+   em TPA.Presentation.Controllers.ErrorController..ctor()
+================================================================================
+Data: 2017-11-24 15:50:11-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'ExternalLogin' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AccountController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-24 15:50:54-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'ExternalLogin' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AccountController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-24 15:52:21-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'ExternalLogin' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AccountController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-24 15:53:45-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'ExternalLogin' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AccountController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-24 15:59:23-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'ExternalLogin' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AccountController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-11-24 18:48:24-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Não é possível inserir o valor NULL na coluna 'Nome', tabela 'tecnun.TPA.Funcionario'; a coluna não permite nulos. Falha em UPDATE.
+A instrução foi finalizada.
+Source:-------------------------------------------------------------------------
+.Net SqlClient Data Provider
+StackTrace:---------------------------------------------------------------------
+   em System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   em System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   em System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   em System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   em System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   em System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   em System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   em System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   em System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteSql(MigrationStatement migrationStatement, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinTransaction(IEnumerable`1 migrationStatements, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinNewTransaction(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection)
+   em System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClass32.<ExecuteStatements>b__30()
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements, DbTransaction existingTransaction)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, VersionedModel targetModel, IEnumerable`1 operations, IEnumerable`1 systemOperations, Boolean downgrading, Boolean auto)
+   em System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   em System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   em System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   em System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClasse.<Update>b__d()
+   em System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   em System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   em System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   em System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   em System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   em System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   em System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   em System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   em System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   em System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   em System.Data.Entity.Internal.InternalContext.Initialize()
+   em System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   em System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   em System.Data.Entity.Internal.Linq.InternalSet`1.Include(String path)
+   em System.Data.Entity.Infrastructure.DbQuery`1.Include(String path)
+   em System.Data.Entity.QueryableExtensions.Include[T](IQueryable`1 source, String path)
+   em System.Data.Entity.QueryableExtensions.Include[T,TProperty](IQueryable`1 source, Expression`1 path)
+   em TPA.Services.Seguranca.ControleAcesso.PodeAcessar(String nomePermissao) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\ControleAcesso.cs:linha 46
+   em TPA.Services.Seguranca.ControleAcesso.PodeAcessar(String controllerName, String actionName) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\ControleAcesso.cs:linha 39
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 26
+================================================================================
+Data: 2017-11-24 18:49:46-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Não é possível inserir o valor NULL na coluna 'Nome', tabela 'tecnun.TPA.Funcionario'; a coluna não permite nulos. Falha em UPDATE.
+A instrução foi finalizada.
+Source:-------------------------------------------------------------------------
+.Net SqlClient Data Provider
+StackTrace:---------------------------------------------------------------------
+   em System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   em System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   em System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   em System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   em System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   em System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   em System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   em System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   em System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteSql(MigrationStatement migrationStatement, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinTransaction(IEnumerable`1 migrationStatements, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinNewTransaction(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection)
+   em System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClass32.<ExecuteStatements>b__30()
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements, DbTransaction existingTransaction)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   em System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, VersionedModel targetModel, IEnumerable`1 operations, IEnumerable`1 systemOperations, Boolean downgrading, Boolean auto)
+   em System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   em System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   em System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   em System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClasse.<Update>b__d()
+   em System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   em System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   em System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   em System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   em System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   em System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   em System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   em System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   em System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   em System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   em System.Data.Entity.Internal.InternalContext.Initialize()
+   em System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   em System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   em System.Data.Entity.Internal.Linq.InternalSet`1.Include(String path)
+   em System.Data.Entity.Infrastructure.DbQuery`1.Include(String path)
+   em System.Data.Entity.QueryableExtensions.Include[T](IQueryable`1 source, String path)
+   em System.Data.Entity.QueryableExtensions.Include[T,TProperty](IQueryable`1 source, Expression`1 path)
+   em TPA.Services.Seguranca.ControleAcesso.PodeAcessar(String nomePermissao) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\ControleAcesso.cs:linha 46
+   em TPA.Services.Seguranca.ControleAcesso.PodeAcessar(String controllerName, String actionName) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\ControleAcesso.cs:linha 39
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 26
+================================================================================
+Data: 2017-11-27 13:14:01-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:14:02-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:14:20-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:14:23-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:15:04-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:15:11-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:15:29-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:15:34-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:16:00-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:16:02-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:17:07-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:17:09-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:18:47-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:18:49-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:19:18-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:19:19-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:19:22-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:19:23-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:20:04-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:20:05-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:20:17-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:20:18-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:20:26-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-27 13:20:27-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Services
+StackTrace:---------------------------------------------------------------------
+   em TPA.Services.Seguranca.TPAAuthorizeAttribute.AuthorizeCore(HttpContextBase httpContext) na Z:\TeamTecnun\Apontamentos\Branches\novologin\01-Services\TPA.Services\Seguranca\TPAAuthorizeAttribute.cs:linha 23
+================================================================================
+Data: 2017-11-30 16:58:35-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'Mover' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.ProjectTreeViewController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-02 23:50:14-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\ce15d159\cacd871b\App_Web_error.cshtml.62599428.kbng90ip.0.cs(23): error CS0234: O nome do namespace ou o tipo 'Core' não existe no namespace 'System'. Precisa de uma referência de assembly?
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Compilation.AssemblyBuilder.Compile()
+   em System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   em System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   em System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   em System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   em System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-02 23:50:15-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\vs\ce15d159\cacd871b\App_Web_error.cshtml.62599428.kbng90ip.0.cs(23): error CS0234: O nome do namespace ou o tipo 'Core' não existe no namespace 'System'. Precisa de uma referência de assembly?
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   em System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   em System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   em System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   em System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   em System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   em System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-02 23:55:07-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Uma conexão com o servidor foi estabelecida com êxito, mas ocorreu um erro durante o processo de logon. (provider: SSL Provider, error: 0 - O nome da rede especificado não está mais disponível.)
+Source:-------------------------------------------------------------------------
+.Net SqlClient Data Provider
+StackTrace:---------------------------------------------------------------------
+   em System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   em System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   em System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   em System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   em System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   em System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   em System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   em System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   em System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   em System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   em System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   em System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   em System.Data.SqlClient.SqlConnection.Open()
+   em Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext`1.IsIdentityV1Schema(DbContext db)
+   em Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext`1..ctor(String nameOrConnectionString, Boolean throwIfV1Schema)
+   em Microsoft.AspNet.Identity.EntityFramework.IdentityDbContext`1..ctor(String nameOrConnectionString)
+   em TPA.Infra.Data.TPAContext..ctor() na Z:\TeamTecnun\Apontamentos\Branches\alertas\03-Infra\TPA.Infra\Data\TPAContext.cs:linha 28
+   em TPA.Infra.Data.TPAContext.Create() na Z:\TeamTecnun\Apontamentos\Branches\alertas\03-Infra\TPA.Infra\Data\TPAContext.cs:linha 24
+   em Owin.AppBuilderExtensions.<>c__DisplayClass1`1.<CreatePerOwinContext>b__0(IdentityFactoryOptions`1 options, IOwinContext context)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryProvider`1.Create(IdentityFactoryOptions`1 options, IOwinContext context)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Kentor.OwinCookieSaver.KentorOwinCookieSaverMiddleware.<Invoke>d__2.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.<DoFinalWork>d__2.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.StageAsyncResult.End(IAsyncResult ar)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.EndFinalWork(IAsyncResult ar)
+   em System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+Mensagem:-----------------------------------------------------------------------
+O nome da rede especificado não está mais disponível
+Source:-------------------------------------------------------------------------
+
+StackTrace:---------------------------------------------------------------------
+
+================================================================================
+Data: 2017-12-07 16:34:52-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'ExternalLoginConfirmation' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AccountController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-08 21:04:21-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Resposta não está disponível neste contexto.
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpApplication.get_Response()
+================================================================================
+Data: 2017-12-09 01:34:45-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/login' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 10:19:09-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método '1078' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.ProjectTreeViewController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 12:36:19-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Presentation
+StackTrace:---------------------------------------------------------------------
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<AdicionarRecursos>d__4.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\SMSDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 238
+================================================================================
+Data: 2017-12-13 12:36:30-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Presentation
+StackTrace:---------------------------------------------------------------------
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<AdicionarRecursos>d__4.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\SMSDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 238
+================================================================================
+Data: 2017-12-13 12:37:59-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Presentation
+StackTrace:---------------------------------------------------------------------
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<AdicionarRecursos>d__4.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\SMSDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 238
+================================================================================
+Data: 2017-12-13 12:42:58-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Presentation
+StackTrace:---------------------------------------------------------------------
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<AdicionarRecursos>d__4.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\SMSDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 240
+================================================================================
+Data: 2017-12-13 12:43:11-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Presentation
+StackTrace:---------------------------------------------------------------------
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<AdicionarRecursos>d__4.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\SMSDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 240
+================================================================================
+Data: 2017-12-13 12:44:00-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Referência de objeto não definida para uma instância de um objeto.
+Source:-------------------------------------------------------------------------
+TPA.Presentation
+StackTrace:---------------------------------------------------------------------
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<AdicionarRecursos>d__4.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\SMSDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 240
+================================================================================
+Data: 2017-12-13 18:56:39-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 18:58:13-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:00:13-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:02:28-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:09:45-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:11:04-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:17:19-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:19:00-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:21:06-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:21:50-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:22:06-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:49:26-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 19:55:32-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:01:33-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:04:44-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:06:59-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:08:51-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:10:11-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:35:39-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:36:18-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:37:09-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:37:58-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (nome="Testes's <strong>hold</strong...").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:38:42-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <b>teste</b>").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:44:48-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <b>teste</b>").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:54:08-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <b>teste</b>").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 20:59:54-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <b>teste</b>").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-13 21:02:07-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um valor possivelmente perigoso Request.Form foi detectado no cliente (descricao="... > arthur <b>teste</b>").
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.HttpRequest.ValidateString(String value, String collectionKey, RequestValidationSource requestCollection)
+   em System.Web.HttpRequest.<>c__DisplayClass280_0.<ValidateHttpValueCollection>b__0(String key, String value)
+   em System.Web.HttpValueCollection.EnsureKeyValidated(String key)
+   em System.Web.HttpValueCollection.Get(String name)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(String path, HttpVerb verb, HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.CreateOutputCachedItemKey(HttpContext context, CachedVary cachedVary)
+   em System.Web.Caching.OutputCacheModule.OnLeave(Object source, EventArgs eventArgs)
+   em System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-19 17:15:19-------------------------------------------------------
+System.InvalidOperationException: Não foi possível localizar o elemento de ponto de extremidade padrão que referencia o contrato 'LocaSMS.ServiceSMSSoap' na seção de configuração do ServiceModel cliente. Isso pode ter ocorrido devido à falta de um arquivo de configuração para o seu aplicativo ou porque nenhum elemento de ponto de extremidade correspondendo a este contrato pôde ser encontrado no elemento cliente.
+   em System.ServiceModel.Description.ConfigLoader.LoadChannelBehaviors(ServiceEndpoint serviceEndpoint, String configurationName)
+   em System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName, Configuration configuration)
+   em System.ServiceModel.ChannelFactory.ApplyConfiguration(String configurationName)
+   em System.ServiceModel.ChannelFactory.InitializeEndpoint(String configurationName, EndpointAddress address)
+   em System.ServiceModel.ChannelFactory`1..ctor(String endpointConfigurationName, EndpointAddress remoteAddress)
+   em System.ServiceModel.ConfigurationEndpointTrait`1.CreateSimplexFactory()
+   em System.ServiceModel.ConfigurationEndpointTrait`1.CreateChannelFactory()
+   em System.ServiceModel.ClientBase`1.CreateChannelFactoryRef(EndpointTrait`1 endpointTrait)
+   em System.ServiceModel.ClientBase`1.InitializeChannelFactoryRef()
+   em System.ServiceModel.ClientBase`1..ctor()
+   em TPA.Services.LocaSMS.ServiceSMSSoapClient..ctor() na Z:\TeamTecnun\Apontamentos\Branches\ajustesDoc\01-Services\TPA.Services\Connected Services\LocaSMS\Reference.cs:linha 330
+   em TPA.Services.LocaSMSClient.Enviar() na Z:\TeamTecnun\Apontamentos\Branches\ajustesDoc\01-Services\TPA.Services\MensagemPorSMS.cs:linha 279
+================================================================================
+Data: 2017-12-19 17:41:44-------------------------------------------------------
+122087994:SUCESSO
+================================================================================
+Data: 2017-12-20 15:37:22-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Content/images/worker.png' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-20 15:37:35-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Content/images/worker.png' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-22 18:12:38-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Content/images/worker.png' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-23 02:06:07-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/dashboard' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-23 02:37:52-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O cliente se desconectou.
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Hosting.IIS7WorkerRequest.BeginRead(Byte[] buffer, Int32 offset, Int32 count, AsyncCallback callback, Object state)
+   em System.Web.HttpBufferlessInputStream.BeginRead(Byte[] buffer, Int32 offset, Int32 count, AsyncCallback callback, Object state)
+   em System.IO.Stream.<>c.<BeginEndReadAsync>b__43_0(Stream stream, ReadWriteParameters args, AsyncCallback callback, Object state)
+   em System.Threading.Tasks.TaskFactory`1.FromAsyncTrim[TInstance,TArgs](TInstance thisRef, TArgs args, Func`5 beginMethod, Func`3 endMethod)
+   em System.IO.Stream.BeginEndReadAsync(Byte[] buffer, Int32 offset, Int32 count)
+   em System.IO.Stream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   em Microsoft.Owin.Host.SystemWeb.CallStreams.DelegatingStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   em System.IO.Stream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count)
+   em System.IO.StreamReader.<ReadBufferAsync>d__97.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.IO.StreamReader.<ReadToEndAsyncInternal>d__62.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.OwinRequest.<ReadFormAsync>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Hangfire.Dashboard.OwinRequestExtensions.<ReadFormSafeAsync>d__1.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Hangfire.Dashboard.OwinDashboardRequest.<GetFormValuesAsync>d__13.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Hangfire.Dashboard.JsonStats.<Dispatch>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Mapping.MapMiddleware.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.<DoFinalWork>d__2.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.StageAsyncResult.End(IAsyncResult ar)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.EndFinalWork(IAsyncResult ar)
+   em System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-23 03:06:34-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O cliente se desconectou.
+Source:-------------------------------------------------------------------------
+System.Web
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Hosting.IIS7WorkerRequest.BeginRead(Byte[] buffer, Int32 offset, Int32 count, AsyncCallback callback, Object state)
+   em System.Web.HttpBufferlessInputStream.BeginRead(Byte[] buffer, Int32 offset, Int32 count, AsyncCallback callback, Object state)
+   em System.IO.Stream.<>c.<BeginEndReadAsync>b__43_0(Stream stream, ReadWriteParameters args, AsyncCallback callback, Object state)
+   em System.Threading.Tasks.TaskFactory`1.FromAsyncTrim[TInstance,TArgs](TInstance thisRef, TArgs args, Func`5 beginMethod, Func`3 endMethod)
+   em System.IO.Stream.BeginEndReadAsync(Byte[] buffer, Int32 offset, Int32 count)
+   em System.IO.Stream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   em Microsoft.Owin.Host.SystemWeb.CallStreams.DelegatingStream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count, CancellationToken cancellationToken)
+   em System.IO.Stream.ReadAsync(Byte[] buffer, Int32 offset, Int32 count)
+   em System.IO.StreamReader.<ReadBufferAsync>d__97.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.IO.StreamReader.<ReadToEndAsyncInternal>d__62.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.OwinRequest.<ReadFormAsync>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Hangfire.Dashboard.OwinRequestExtensions.<ReadFormSafeAsync>d__1.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Hangfire.Dashboard.OwinDashboardRequest.<GetFormValuesAsync>d__13.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Hangfire.Dashboard.JsonStats.<Dispatch>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Mapping.MapMiddleware.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Security.Infrastructure.AuthenticationMiddleware`1.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.AspNet.Identity.Owin.IdentityFactoryMiddleware`2.<Invoke>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContextStage.<RunApp>d__5.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.<DoFinalWork>d__2.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.StageAsyncResult.End(IAsyncResult ar)
+   em Microsoft.Owin.Host.SystemWeb.IntegratedPipeline.IntegratedPipelineContext.EndFinalWork(IAsyncResult ar)
+   em System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2017-12-27 17:02:03-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.
+Source:-------------------------------------------------------------------------
+mscorlib
+StackTrace:---------------------------------------------------------------------
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   em TPA.Presentation.Controllers.ProjectTreeViewController.<Delete>d__1.MoveNext() na Z:\TeamTecnun\Apontamentos\Branches\ajustesDoc\00-Presentation\TPA.Presentation\Controllers\ProjectTreeViewController.cs:linha 64
+Mensagem:-----------------------------------------------------------------------
+An error occurred while updating the entries. See the inner exception for details.
+Source:-------------------------------------------------------------------------
+EntityFramework
+StackTrace:---------------------------------------------------------------------
+   em System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__39.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__31.MoveNext()
+Mensagem:-----------------------------------------------------------------------
+A instrução DELETE conflitou com a restrição do REFERENCE "FK_TPA.ProjectNodeUsuario_TPA.ProjectNode_ProjectNode_Id". O conflito ocorreu no banco de dados "tecnun", tabela "TPA.ProjectNodeUsuario", column 'ProjectNode_Id'.
+A instrução foi finalizada.
+Source:-------------------------------------------------------------------------
+.Net SqlClient Data Provider
+StackTrace:---------------------------------------------------------------------
+   em System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   em System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   em System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   em System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   em System.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, String endMethod, Boolean isInternal)
+   em System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   em System.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   em System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Data.Entity.Utilities.TaskExtensions.CultureAwaiter`1.GetResult()
+   em System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.<ExecuteAsync>d__0.MoveNext()
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__0.MoveNext()
+================================================================================
+Data: 2018-01-03 16:29:19-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'Atestado' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.AtestadoController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-01-05 23:13:53-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'CarregaReferencia' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.SegurancaController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-01-05 23:18:15-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'CarregaReferencia' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.SegurancaController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-01-05 23:22:45-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'GetAssembly' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.SegurancaController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-01-12 16:18:07-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+An error occurred while updating the entries. See the inner exception for details.
+Source:-------------------------------------------------------------------------
+EntityFramework
+StackTrace:---------------------------------------------------------------------
+   em System.Data.Entity.Internal.InternalContext.SaveChanges()
+   em System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   em System.Data.Entity.DbContext.SaveChanges()
+   em TPA.Infra.Data.TPAContext.SaveChanges() na Z:\TeamTecnun\Apontamentos\Main\03-Infra\TPA.Infra\Data\TPAContext.cs:linha 113
+Mensagem:-----------------------------------------------------------------------
+An error occurred while updating the entries. See the inner exception for details.
+Source:-------------------------------------------------------------------------
+EntityFramework
+StackTrace:---------------------------------------------------------------------
+   em System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   em System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   em System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   em System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   em System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   em System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   em System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   em System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   em System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   em System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   em System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   em System.Data.Entity.Internal.InternalContext.SaveChanges()
+Mensagem:-----------------------------------------------------------------------
+Não é possível inserir uma linha de chave duplicada no objeto 'TPA.Acao' com índice exclusivo 'IX_Nome'. O valor de chave duplicada é (HomeController/AdicionarLinhaDeAtividade).
+A instrução foi finalizada.
+Source:-------------------------------------------------------------------------
+.Net SqlClient Data Provider
+StackTrace:---------------------------------------------------------------------
+   em System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   em System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   em System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   em System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   em System.Data.SqlClient.SqlDataReader.get_MetaData()
+   em System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   em System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   em System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   em System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   em System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   em System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   em System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   em System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   em System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   em System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   em System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   em System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   em System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   em System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+================================================================================
+Data: 2018-01-26 11:53:49-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+Um método 'RemoverTodosOsNodes' de ação pública não foi encontrado no controlador 'TPA.Presentation.Controllers.UsuariosController'.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   em System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   em System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   em System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-06-22 00:36:54-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Magager/index' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-06-22 00:37:09-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Magager/index/2' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-06-22 00:40:47-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Manager/index/2' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================
+Data: 2018-06-22 01:46:55-------------------------------------------------------
+Mensagem:-----------------------------------------------------------------------
+O controlador do caminho '/Content/less/datepicker3.less' não foi encontrado ou não implementa IController.
+Source:-------------------------------------------------------------------------
+System.Web.Mvc
+StackTrace:---------------------------------------------------------------------
+   em System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   em System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   em System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   em System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   em System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   em System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   em System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+================================================================================

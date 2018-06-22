@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container-fluid bordered spacer" id="divFormulario">
+    <div class="form-horizontal">
+        @using (Html.BeginForm("Index", "Relatorios", FormMethod.Post))
+        {
+
+            @Html.AntiForgeryToken()
+
+            <div class="row sp-vertical">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("dtIni", "Data Inicial", htmlAttributes: new { @class = "control-label input-group-addon"})
+                            @Html.TextBox("dtIni", "", new { @class = "form-control disabled tfw_datepicker", id = "dtIni" })
+                            <label for="dtIni" class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("dtIni", "Data Final", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            @Html.TextBox("dtFin", "", new { @class = "form-control disabled tfw_datepicker", id = "dtFin" })
+                            <label for="dtIni" class="input-group-addon">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row sp-vertical">
+                <div class="col-sm-12">
+                    <input type="submit" value="Gerar" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

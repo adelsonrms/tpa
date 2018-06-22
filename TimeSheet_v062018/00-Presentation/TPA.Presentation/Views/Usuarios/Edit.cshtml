@@ -1,0 +1,117 @@
+﻿@model TPA.ViewModel.UsuarioViewModel
+
+@{
+    ViewBag.Title = "Editar Usuários";
+}
+
+@section scripts
+{
+
+    <script>
+        $(function () {
+            $("#Celular").mask("(00) 0000-00009");
+        });
+    </script>
+
+}
+
+<h2>Editar Usuários</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div >
+        <div class="text-right">
+            @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+
+    <div class="container-fluid bordered spacer" >
+        <div class="form-horizontal">
+            <fieldset>
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.Login, new { @class = "form-control" })
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.EmailProfissional, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.EmailProfissional, new { @class = "form-control" })
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.EmailProfissional, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.Celular, new { @class = "form-control" })
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <span class="input-group-addon ">@Html.CheckBoxFor(model => model.EnviarAlertaLancamento, new { @class = "" })</span>
+                        @Html.LabelFor(model => model.EnviarAlertaLancamento, htmlAttributes: new { @class = "form-control" })
+                        
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.EnviarAlertaLancamento, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <div class="input-group">
+
+                        <span class="input-group-addon ">@Html.CheckBoxFor(model => model.Ativo, new { @class = "" })</span>
+                        @Html.LabelFor(model => model.Ativo, htmlAttributes: new { @class = "form-control" })
+
+                    </div>
+
+                    @Html.ValidationMessageFor(model => model.Ativo, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group  text-right">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+
+            </fieldset>
+
+        </div>
+    </div>
+
+
+}
+

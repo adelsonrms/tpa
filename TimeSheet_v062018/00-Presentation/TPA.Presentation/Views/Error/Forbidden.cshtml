@@ -1,0 +1,66 @@
+﻿@model TPA.ViewModel.ErroViewModel
+@{
+    ViewBag.Title = Model.Mensagem;
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_LayoutErro.cshtml";
+}
+
+<h1 class="text-danger">@Model.Mensagem</h1>
+<h3 class="text-info">@Model.Descricao</h3>
+
+<h4>Usuário: @Model.Usuario</h4>
+
+<div class="container-fluid bordered spacer " >
+    <img src="~/Content/Images/pare.png" class="" style="width:30%"  />
+</div>
+
+<div>
+    Página de Erro de Acesso Restrito <br/>
+    @if ((Model.UltimoErro != null) && (!Request.IsAjaxRequest()))
+    {
+            <pre>
+                @Model.UltimoErro.ToString()
+            </pre>
+    }
+</div>
+
+
+@if (!Request.IsAjaxRequest())
+{
+
+    <hr />
+    <dl class="dl-horizontal  bordered spacer">
+        <dt>
+            Status
+        </dt>
+        <dd>
+            @Response.Status
+        </dd>
+
+
+        <dt>
+            Status Code
+        </dt>
+        <dd>
+            @Response.StatusCode
+        </dd>
+
+
+        <dt>
+            Sub Status Code
+        </dt>
+        <dd>
+            @Response.SubStatusCode
+        </dd>
+
+
+        <dt>
+            Status Description
+        </dt>
+        <dd>
+            @Response.StatusDescription
+        </dd>
+
+
+    </dl>
+    <hr />
+}

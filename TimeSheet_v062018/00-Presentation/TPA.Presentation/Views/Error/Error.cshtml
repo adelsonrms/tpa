@@ -1,0 +1,100 @@
+﻿@using TPA.Infra.Services
+
+
+
+@model TPA.ViewModel.ErroViewModel
+
+@{
+    ViewBag.Title = Model.Mensagem;
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_LayoutErro.cshtml";
+    Exception LastError = Server.GetLastError();
+}
+
+<h1 class="text-danger">Erro</h1>
+
+@if (Model != null)
+{
+    <h2 class="text-warning">@Model.Mensagem</h2>
+    <h3 class="text-info">@Model.Descricao</h3>
+
+
+    <div class="container-fluid ">
+
+        <div class="col-sm-3">
+            <img src="~/Content/Images/erro.png" style="width:100%" />
+        </div>
+        <div class="col-sm-9">
+            @if ((Model.UltimoErro != null) && (!Request.IsAjaxRequest()))
+            {
+                <pre style="white-space:pre-line">
+                    @LogServices.ConcatenaExceptions(Model.UltimoErro);
+                </pre>
+            }
+        </div>
+
+    </div>
+
+}
+else if (LastError != null)
+{
+    <h2 class="text-warning">@LastError.Message</h2>
+
+        <div class="container-fluid ">
+
+            <div class="col-sm-3">
+                <img src="~/Content/Images/erro.png" style="width:100%" />
+            </div>
+            <div class="col-sm-9">
+                @if (!Request.IsAjaxRequest())
+                {
+                    <pre style="white-space:pre-line">
+                        @LogServices.ConcatenaExceptions(LastError);
+                    </pre>
+                }
+            </div>
+
+        </div>
+}
+
+
+
+@if (!Request.IsAjaxRequest())
+{
+    <hr />
+    <dl class="dl-horizontal  bordered spacer">
+        <dt>
+            Status
+        </dt>
+        <dd>
+            @Response.Status
+        </dd>
+
+
+        <dt>
+            Status Code
+        </dt>
+        <dd>
+            @Response.StatusCode
+        </dd>
+
+
+        <dt>
+            Sub Status Code
+        </dt>
+        <dd>
+            @Response.SubStatusCode
+        </dd>    
+
+
+        <dt>
+            Status Description
+        </dt>
+        <dd>
+            @Response.StatusDescription
+        </dd>
+
+
+    </dl>
+    <hr />
+}
+

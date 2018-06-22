@@ -1,0 +1,145 @@
+﻿@using TPA.Presentation.Util;
+@using TFW.Domain
+@model TPA.ViewModel.AtividadeViewModel
+
+@{
+    ViewBag.Title = "Alterar Atividade";
+}
+
+<h2>Alterar Atividade</h2>
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.Id)
+
+    <div >
+        <div class="text-right" >
+            @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+        </div>
+
+    </div> 
+
+    <div class="container-fluid bordered spacer" >
+
+        <div class="form-horizontal" >
+            <fiedset>
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.IdProjectNode, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownHierarquico(
+                                    Html.NameFor(model => model.IdProjectNode).ToString(),
+                                    Html.IdFor(model => model.IdProjectNode).ToString(),
+                                    "form-control tfw_select2 ",
+                                    ViewBag.Nodes as TFWHierarchicalList,
+                                    Model != null && Model.IdProjectNode != 0 ? Model.IdProjectNode.ToString() : "",
+                                    true,
+                                    TFW.WebForms.Extensions.TFWFormatacaoDeArvore.SugerirApenasFolhas,
+                                    new { data_val = "true", data_val_required = "O projeto deve ser preenchido" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.IdProjectNode, "O projeto deve ser preenchido", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.IdTipoAtividade, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownListFor(model => model.IdTipoAtividade, ViewBag.Tipos as SelectList, string.Empty, new { @class = "form-control  tfw_select2" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.IdTipoAtividade, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownListFor(model => model.IdUsuario, ViewBag.Usuarios as SelectList, string.Empty, new { @class = "form-control  tfw_select2" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.TextBoxFor(model => model.Data, new { @class = "form-control disabled tfw_datepicker", title = "Informe o horário inicial" })
+                                <label for="@Html.IdFor(model => model.Data)" class="input-group-addon">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </label>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.Inicio, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.EditorFor(model => model.Inicio, new { htmlAttributes = new { @class = "form-control tfw_timepicker", title = "Informe o horário inicial" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Inicio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.Fim, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.EditorFor(model => model.Fim, new { htmlAttributes = new { @class = "form-control tfw_timepicker", title = "Informe o horário final" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Fim, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                                @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.TextBoxFor(model => model.Observacao, new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Observacao, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+
+                </div>
+            </fiedset>
+
+        </div>
+
+    </div>
+    
+
+
+}
+
+<hr/>
+
+
+
+
+

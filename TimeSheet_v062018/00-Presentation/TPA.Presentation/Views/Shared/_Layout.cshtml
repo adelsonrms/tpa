@@ -1,0 +1,259 @@
+﻿@using TPA.ViewModel
+@using TPA.Services.Seguranca
+@using System.Globalization
+@using System.Threading
+@using TPA.Infra.Services
+
+
+<!DOCTYPE html>
+<meta http-equiv="content-language" content="pt-br" />
+<meta name="language" content="Portuguese">
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Tecnun Projetos e Apontamentos</title>
+    @Styles.Render("~/bundles/cssbundle")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        .modalloading
+        {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 51, 51, 51, 0.6 )
+                        url('@Url.Content("~/Content/Images/hourglass.gif")')
+                        50% 50%
+                        no-repeat;
+        }
+
+
+        body.loading {
+            overflow: hidden;
+        }
+        body.loading .modalloading {
+            display: block;
+        }
+
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu>a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover>a:after {
+            border-left-color: #fff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+        .dropdown-submenu.pull-left>.dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+    </style>
+    @RenderSection("scriptsHead", required: false)
+</head>
+
+<body>
+        
+        <header>
+            <div class="navbar-more-overlay"></div>
+            <nav class="navbar navbar-default navbar-fixed-top animate">
+                <div class="container-fluid body-content"> <!-- Adelson 16/10/2017: Modificado para mostrar os itens do menu na mesma centralização do corpo da pagina-->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href='@Url.Action("Index", "Home", new { area = "" })' class="navbar-brand">
+                            <img src='@Url.Content("~/Content/Images/tecnunpeq.png")' style="width:90px; height:27px;" />
+                        </a>
+                    </div>
+                    <!-- Carrega os links dos menus -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!-- Verifica se o usuário tem acesso à Controller Atividades -->
+                            @if (ControleAcesso.TemAcesso(SegurancaResources.MENU_ATIVIDADES))
+                            {
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Novo <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        @if (ControleAcesso.TemAcesso(SegurancaResources.GERENCIAR_ATIVIDADES_FUNCIONARIOS))
+                                        {
+                                            @Html.MenuItemLiSeguro("Atividades", "Index", "Atividades")
+                                            @Html.MenuItemLiSeguro("Abono e Férias", "Index", "Abono")
+                                            @Html.MenuItemLiSeguro("Atestado", "Index", "Atestado")
+                                            @Html.MenuItemLiSeguro("Fechamento", "Index", "Fechamento")
+                                            @Html.MenuItemLiSeguro("Importar Planilha com Múltiplos Usuários", "Index", "ImportacaoPlanilhaAdmin")
+                                            @Html.MenuItemLiSeguro("Lançamento em Lote", "Index", "LancamentoEmLote")
+                                            @Html.MenuItemLiSeguro("Exclusão Múltipla", "DeleteMultiplo", "Atividades")
+                                            <li role="separator" class="divider"></li>
+                                            @Html.MenuItemLiSeguro("Relatórios", "Index", "Relatorios")
+                                            @Html.MenuItemLiSeguro("Atraso no Lançamento", "AtrasoLancamento", "Usuarios")
+                                        }
+                                        <li role="separator" class="divider"></li>
+                                        @Html.MenuItemLiSeguro("Importar Planilha", "Index", "ImportacaoPlanilha")
+                                        <li role="separator" class="divider"></li>
+                                        
+                                    </ul>
+                                </li>
+                            }
+                            @if (ControleAcesso.TemAcesso(SegurancaResources.MENU_PROJETOS))
+                            {
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projetos <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        @Html.MenuItemLiSeguro("Visão Tabular", "Index", "ProjectNodes")
+                                        @Html.MenuItemLiSeguro("Visão Hierárquica", "Index", "ProjectTreeView")
+                                    </ul>
+                                </li>
+
+                            }
+                        </ul>
+                        <ul class="nav navbar-nav ">
+                            <li class="dropdown">
+                                @if (ControleAcesso.TemAcesso(SegurancaResources.MENU_CONFIGURACOES))
+                                {
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configurações <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        @Html.MenuItemLiSeguro("Tipos de Atividade", "Index", "TipoAtividade")
+                                        @Html.MenuItemLiSeguro("Rótulos de Níveis de Projeto", "Index", "NodeLabels")
+                                        @Html.MenuItemLiSeguro("Ações de usuário", "Index", "Acao")
+                                        <li role="separator" class="divider"></li>
+                                        @Html.MenuItemLiSeguro("Usuários", "Index", "Usuarios")
+
+                                        <li class="dropdown-submenu">
+
+                                            <a tabindex="-1" href="#">Segurança</a>
+                                            <ul class="dropdown-menu">
+                                                @Html.MenuItemLiSeguro("Visão por Perfil", "Index", "Perfil")
+                                                @Html.MenuItemLiSeguro("Visão por Ação", "Index", "Seguranca")
+                                            </ul>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        @Html.MenuItemLiSeguro("Testes e Custom Errors", "Index", "Testes")
+                                    </ul>
+                                }
+                            </li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        <div class="container-fluid body-content">
+
+            @if (DevServices.IsDevEnv())
+            {
+                <div class="row">
+                    <div class="col-sm-12 alert alert-warning alert-dismissable">
+                        <a class="close" data-dismiss="alert"> × </a>
+                        <span class="glyphicon glyphicon-warning-sign"></span><strong> Atenção!</strong> O sistema está sendo executado em modo de desenvolvimento.
+                        @{
+                            var cs = ConfigServices.GetConnectionString();
+                            var info = cs.Split(";".ToCharArray());
+                            var csinfo = String.Format("Servidor : {0} | Banco de Dasos : {1} | Usuário : {2}", info[0].Split("=".ToCharArray())[1], info[1].Split("=".ToCharArray())[1], info[2].Split("=".ToCharArray())[1]);
+                        <br />@csinfo;
+                        }
+                        
+                    </div>
+                </div>
+
+                            }
+
+            <div class="row">
+                <div class="row sp-vertical"></div>
+                <div class="col-sm-12">
+                    @if (TempData["MensagemUsuario"] != null)
+                    {
+                        MensagemParaUsuarioViewModel msg = TempData["MensagemUsuario"] as MensagemParaUsuarioViewModel;
+                        if ((msg != null) && (!string.IsNullOrWhiteSpace(msg.Mensagem)))
+                        {
+                            <div class="@msg.Classe" style="white-space: pre-line"><strong>@msg.Titulo</strong>: @msg.Mensagem</div>
+                        }
+                    }
+                </div>
+            </div>
+            @RenderBody()
+        </div>
+    
+        <hr />
+
+        <footer class="text-center">
+            <span>&copy; @DateTime.Now.Year - Tecnun - V1.0 - @CultureInfo.CurrentCulture.ToString()</span>            
+        </footer>
+
+        <div class="modalloading"></div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/globalize")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquerymask")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/datatables")
+        @Scripts.Render("~/bundles/select2")
+        <script src="~/JsDinamico/" type="text/javascript" ></script>
+        @Scripts.Render("~/bundles/tfw")
+        @Scripts.Render("~/bundles/tpa")
+        <script type='text/javascript'>
+            var timeOutHandler;
+            $(function () {
+                $(document).on({
+                    ajaxStart: function () {
+                        clearTimeout(timeOutHandler);
+                        timeOutHandler = setTimeout(function () { $("body").addClass("loading"); }, 1000);
+                    },
+                    ajaxStop: function () {
+                        clearTimeout(timeOutHandler);
+                        $("body").removeClass("loading");
+                    },
+                    ajaxComplete: function () {
+                        clearTimeout(timeOutHandler);
+                        $("body").removeClass("loading");
+                    }
+                });
+            });
+        </script>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

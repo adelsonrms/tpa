@@ -1,0 +1,104 @@
+﻿@using TPA.Presentation.Util;
+@using TFW.Domain
+@using TPA.ViewModel
+@using TPA.Framework
+
+@model TPA.Domain.DomainModel.Atividade
+
+@{string idFormulario = DateTime.Now.Ticks.ToString(); }
+
+@using (Html.BeginForm("CreateAjax", "Home", FormMethod.Post, new { id = "frm" + idFormulario }))
+{
+
+    <div class="form-horizontal bordered spacer">
+        <fiedset>
+            <div class="row">
+                <div class="col-sm-12">
+                    @if (TempData["MensagemUsuario"] != null)
+                    {
+                        MensagemParaUsuarioViewModel msg = TempData["MensagemUsuario"] as MensagemParaUsuarioViewModel;
+                        if ((msg != null) && (!string.IsNullOrWhiteSpace(msg.Mensagem)))
+                        {
+                            <div class="@msg.Classe" style="white-space: pre-line"><strong>@msg.Titulo</strong>: @msg.Mensagem</div>
+                        }
+                    }
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.ProjectNode, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control disabled" title="@Model.ProjectNode.Nome">
+                                @Model.ProjectNode.Nome 
+                            </span >
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.TipoAtividade, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control disabled" title="@Model.TipoAtividade.Nome">@Model.TipoAtividade.Nome</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.Label("Data", htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control disabled" title="@Model.Inicio.Date.ToString("dd/MM/yyyy")">@Model.Inicio.Date.ToString("dd/MM/yyyy")</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.Inicio, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control disabled" title="@Model.Inicio.TimeOfDay.TimeSpanToString()">@Model.Inicio.TimeOfDay.TimeSpanToString()</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.Fim, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control disabled" title="@Model.Fim.TimeOfDay.TimeSpanToString()">@Model.Fim.TimeOfDay.TimeSpanToString()</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            @Html.LabelFor(model => model.Observacao, htmlAttributes: new { @class = "control-label input-group-addon" })
+                            <span class="form-control disabled" title="@Model.Observacao">@Model.Observacao</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </fiedset>
+
+    </div>
+
+
+}

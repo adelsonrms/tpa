@@ -1,0 +1,26 @@
+﻿@using TPA.Services
+
+@if (Request.IsAuthenticated)
+{
+    var UsuarioAtual = UserServices.GetByLogin(User.Identity.Name);
+    var saudacao = string.Format(" {0} ({1})", UsuarioAtual.Nome, UsuarioAtual.Login);
+
+    <text>
+         <input type="hidden" name="hUsuarioLogado" id="hUsuarioLogado" value="@UsuarioAtual.Id" />
+         <ul class="nav navbar-nav navbar-right">
+            <li >
+                <a class="text-center text-info" href="/Manage/Index/@UsuarioAtual.Id"><span class="glyphicon glyphicon-user"></span>@saudacao</a>
+            </li>
+            <li >
+                <a class="text-center text-info" href="/Account/SignOut/"><span class="glyphicon glyphicon-log-out"></span> Sair</a>
+            </li>
+        </ul>
+    </text>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Logon", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+

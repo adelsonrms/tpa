@@ -1,0 +1,62 @@
+﻿@model TPA.Domain.DomainModel.Acao
+
+@{
+    ViewBag.Title = "Criar Ação";
+}
+
+<h2>Ação de usuário</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div >
+        <div class="text-right">
+            @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+        </div>
+
+    </div>
+
+    <div class="container-fluid bordered spacer">
+
+        <div class="form-horizontal">
+            <fiedset>
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.NomeAmigavel, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.NomeAmigavel, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NomeAmigavel, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.DescricaoAmigavel, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.TextBoxFor(model => model.DescricaoAmigavel, new { @class = "form-control" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.DescricaoAmigavel, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-right">
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                </div>
+            </fiedset>
+        </div>
+
+
+    </div>
+
+}

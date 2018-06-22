@@ -1,0 +1,237 @@
+﻿@using TPA.Presentation.Util;
+@using TFW.Domain
+@model TPA.ViewModel.UsuarioNodeViewModel
+@{
+    ViewBag.Title = "Nodes do Usuário";
+}
+
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(function () {
+
+            var $tblLista = $('#tblLista').DataTable(
+            {
+                pageLength: 10,
+                lengthChange: false,
+                columnDefs:
+                [
+
+                    { orderable: false, targets: [1] }
+
+                ],
+                sDom: 'Bftp',
+                stateSave: true,
+                language:
+                {
+                    "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                },
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }
+                ]
+            });
+
+            $(".botaoRemoverNode").click(function () {
+                $("#IdUsuarioExclusao").val($(this).data("idusuario"));
+                $("#IdNodeExclusao").val($(this).data("idnode"));
+                $("#modalConfirmarExclusao").modal("show");
+            });
+
+            $(".botaoRemoverTodos").click(function () {
+                $("#IdUsuarioExclusaoTodos").val($(this).data("idusuario"));
+                $("#modalConfirmarExclusaoTodos").modal("show");
+            });
+
+
+            
+
+            $("#btAdicionar").click(function () {                
+                var $selecionado = $("#IdNode").select2('data');
+                if ($selecionado == null || $selecionado[0] == null || $selecionado[0].id == null || $selecionado[0].id == "")
+                {
+                    bootbox.alert("Por favor selecione um projeto ou etapa!");
+                    return false;
+                }
+                $("#spHierarquia").text($selecionado[0].text);
+                $("#modalConfirmarAdicao").modal("show");
+            });
+
+        });
+    </script>
+}
+
+<h2>
+    Estruturas de projeto do Usuário 
+    @if (Model != null && Model.Usuario != null)
+    {
+        <strong>@Model.Usuario.FuncionarioNomeOuLogin</strong>
+    }
+</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.IdUsuario)
+
+    <div >
+        <div class="text-right">
+            @Html.ActionLink("Voltar à lista", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+
+
+    <div class="content-fluid bordered spacer">
+        <div class="row">
+            <div class="col-sm-12 ">
+                @Html.ValidationSummary(false, "Erros encontrados", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="form-group">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.IdNode, htmlAttributes: new { @class = "control-label input-group-addon" })
+                        @Html.DropDownHierarquico("IdNode", "IdNode", "form-control tfw_select2 ", ViewBag.Nodes as TFWHierarchicalList, "", true)
+                    </div>
+                    @Html.ValidationMessageFor(model => model.IdNode, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 text-right" id="divBotoes">
+                <button type="button" class="btn btn-primary" id="btAdicionar">Adicionar</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="modalConfirmarAdicao" tabindex="-1" role="dialog" aria-labelledby="modalConfirmarAdicaoLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalConfirmarAdicaoLabel">Adicionár nó de projetos ao usuário</h4>
+                </div>
+                <div class="modal-body">
+                    Deseja adicionar todos os itens da hierarquia <strong><span id="spHierarquia"></span></strong>?
+                </div>
+                <div class="modal-footer">
+                    <div class="col-sm-3 text-left">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" title="Sair sem adicionar">Cancelar</button>
+                    </div>
+
+                    <div class="col-sm-9 text-right">
+                        <button type="submit" value="false" name="AdicionarRecursivo" class="btn btn-primary" id="btAdicionarEste" title="Adicionar apenas este" >Não <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                        <button type="submit" value="true" name="AdicionarRecursivo" class="btn btn-primary" id="btAdicionarRecursivo" title="Adicionar recursivamente">Sim <span class="glyphicon glyphicon-floppy-save"></span></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+        <table id="tblLista" class="table table-striped table-bordered tfw_grid">
+            <thead>
+                <tr>
+                    <th>Projeto</th>
+                    <th class="controles text-center "><span class="glyphicon glyphicon-remove botaoRemoverTodos" data-idusuario="@Model.Usuario.Id"></span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.GetNosDoUsuario())
+                {
+                    <tr data-idperfil="@item.Id">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Path)
+                        </td>
+                        <td class="text-center">
+                            <span class="glyphicon glyphicon-remove botaoRemoverNode" data-idusuario="@Model.Usuario.Id" data-idnode="@item.Id"></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+
+        </table>
+
+
+@using (Html.BeginForm("RemoverNode", "Usuarios"))
+{
+    @Html.AntiForgeryToken()
+<div class="modal fade" id="modalConfirmarExclusao" tabindex="-1" role="dialog" aria-labelledby="modalConfirmarExclusaoLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalConfirmarExclusaoLabel">Retirar Nó de projeto do usuário</h4>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja remover esse nó de projeto?   <br/>
+                Remover também toda a hierarquia abaixo dele? 
+                @Html.Hidden("IdUsuarioExclusao", "", htmlAttributes: new { id = "IdUsuarioExclusao" })
+                @Html.Hidden("IdNodeExclusao", "", htmlAttributes: new { id = "IdNodeExclusao" })
+            </div>
+
+            <div class="modal-footer">
+                <div class="col-sm-2 text-left">
+                    <button type="button" class="btn btn-default cancel" data-dismiss="modal" title="Nada será removido">Não</button>
+                </div>
+
+                <div class="col-sm-10 text-right">
+                    <button type="submit" value="false" name="RemoverRecursivo"  class="btn btn-danger" id="btRemoverEste" title="Apenas o selecionado será removido">Sim, apenas este <span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="submit" value="true" name="RemoverRecursivo" class="btn btn-danger" id="btRemoverRecursivo" title="Todos os itens abaixo serão resolvidos">SIM, TODOS <span class="glyphicon glyphicon-remove"></span><span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
+
+@using (Html.BeginForm("RemoverTodosOsNodes", "Usuarios"))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="modalConfirmarExclusaoTodos" tabindex="-1" role="dialog" aria-labelledby="modalConfirmarExclusaoTodosLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="modalConfirmarExclusaoTodosLabel">Retirar TODOS os nós de projeto do usuário</h4>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja remover todos os nós de projeto desse usuário?   <br />
+                    @Html.Hidden("IdUsuarioExclusaoTodos", "", htmlAttributes: new { id = "IdUsuarioExclusaoTodos" })
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-sm-2 text-left">
+                        <button type="button" class="btn btn-default cancel" data-dismiss="modal" title="Nada será removido">Não</button>
+                    </div>
+
+                    <div class="col-sm-10 text-right">
+                        <button type="submit" value="RemoverTodos" name="RemoverTodos" class="btn btn-danger" id="btRemoverTodos" title="Todos os itens do usuário">SIM, TODOS <span class="glyphicon glyphicon-remove"></span><span class="glyphicon glyphicon-remove"></span></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

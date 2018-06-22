@@ -1,0 +1,232 @@
+﻿@using TPA.Presentation.Util;
+@using TPA.Framework
+
+
+
+@model TPA.ViewModel.FechamentoIndexViewModel
+
+
+
+@{
+    ViewBag.Title = "Fechamento do Mês";
+}
+
+
+
+
+<h2>Escolher Usuário</h2>
+
+@using (Html.BeginForm("Index", "Fechamento", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()
+
+
+    <div class="container-fluid bordered spacer" style="clear:left;">
+        <div class="form-horizontal">
+            <fieldset>
+
+                @if (Model != null && Model.Usuarios!=null && Model.Usuarios.Count() > 0)
+                {
+
+                    <div class="row sp-vertical">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+
+
+                                @Html.LabelFor(model => model.Busca.IdsUsuarios, htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.ListBoxFor(model => model.Busca.IdsUsuarios, new MultiSelectList(Model.Usuarios, "Id", "FuncionarioNomeOuLogin", Model.Busca.IdsUsuarios), new { @class = "form-control  tfw_select2" })
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row sp-vertical">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+
+
+                                @Html.LabelFor(model => model.Busca.MesInicial, "Início", htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownListFor(model => model.Busca.MesInicial, ViewBag.Meses as SelectList, new { @class = "form-control  tfw_select2" })
+                                @Html.LabelFor(model => model.Busca.AnoInicial, "/", htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownListFor(model => model.Busca.AnoInicial, ViewBag.Anos as SelectList, new { @class = "form-control  tfw_select2" })
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="col-sm-6">
+                            <div class="input-group">
+
+
+                                @Html.LabelFor(model => model.Busca.MesFinal, "Fim", htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownListFor(model => model.Busca.MesFinal, ViewBag.Meses as SelectList, new { @class = "form-control  tfw_select2" })
+                                @Html.LabelFor(model => model.Busca.AnoFinal, "/", htmlAttributes: new { @class = "control-label input-group-addon" })
+                                @Html.DropDownListFor(model => model.Busca.AnoFinal, ViewBag.Anos as SelectList, new { @class = "form-control tfw_select2" })
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row sp-vertical">
+
+                        <div class="col-sm-12 text-right">
+                            <button name="Acao" value="Pesquisar" type="submit" class="btn btn-primary">Pesquisar</button>
+                            <button name="Acao" value="Recalcular" type="submit" class="btn btn-primary">Recalcular registros exibidos</button>
+                            <button name="Acao" value="Fechar" type="submit" class="btn btn-primary">Fechar registros exibidos</button>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-sm-12 alert alert-danger">Ainda não há usuários cadastrados</div>
+                    </div>
+                }
+
+
+
+            </fieldset>
+
+        </div>
+
+
+
+
+        @if (Model != null && Model.Referencias != null && Model.Referencias.Count() > 0)
+        {
+
+            @section scripts
+            {
+
+                <script type="text/javascript">
+
+                        $(function () {
+                            var $tblLista = $('#tblLista').DataTable(
+                            {
+                                pageLength: 12,
+                                lengthChange: false,
+                                columnDefs:
+                                [
+
+                                    { orderable: false, targets: [3,4,5,6,7,8] },
+                                    { orderable: true, targets: 1, iDataSort: 0 },
+                                    { visible: false, targets: [0] }
+
+                                ],
+                                sDom: 'Bftp' ,
+                                stateSave: true,
+                                language:
+                                {
+                                    "url": "@Url.Content("~/Scripts/DataTables/Portuguese-Brasil.json")"
+                            },
+                            buttons: [
+                                {
+                                    extend: 'excelHtml5',
+                                    exportOptions: {
+                                        columns: ':visible:not(.operacao)'
+                                    }
+                                }
+                            ]
+                        });
+                        });
+
+                </script>
+
+            }
+
+            <div class="row sp-vertical">
+                <div class="container-fluid bordered spacer">
+
+                    <table id="tblLista" class="table table-striped table-bordered tfw_grid" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    Ano/Mês
+                                </th>
+                                <th>
+                                    Funcionário
+                                </th>
+                                <th>
+                                    Horas Previstas
+                                </th>
+                                <th>
+                                    Horas Realizadas
+                                </th>
+                                <th>
+                                    Saldo do Mês
+                                </th>
+                                <th>
+                                    Banco de Horas
+                                </th>
+
+                                <th>
+                                    Fechado
+                                </th>
+                                <th class="text-center operacao">Operação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.Referencias)
+                            {
+                                <tr>
+                                    <td>
+                                        @(item.Ano.ToString() + "-" + item.Mes.ToString())
+                                    </td>
+                                    <td>
+                                        @(item.Ano.ToString() + "/" + item.Mes.ToString())
+                                    </td>
+                                    <td>
+                                        @(item.Usuario.FuncionarioNomeOuLogin)
+                                    </td>
+                                    <td>
+                                        @item.Previsto.BigTimeSpanToString()
+                                    </td>
+                                    <td>
+                                        @item.Realizado.BigTimeSpanToString()
+                                    </td>
+                                    <td>
+                                        @item.SaldoDoMes.BigTimeSpanToString()
+                                    </td>
+                                    <td>
+                                        @item.BancoDeHoras.BigTimeSpanToString()
+                                    </td>
+
+                                    <td>
+                                        @(item.Fechado ? "S" : "N")
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="@(Url.Action("Edit", "Fechamento", new { id = item.Id }))"><span class="glyphicon glyphicon-edit" alt="Editar" title="Editar"></span></a> |
+                                        <a href="@(Url.Action("Details", "Fechamento", new { id = item.Id }))"><span class="glyphicon glyphicon-list-alt" alt="Detalhes" title="Detalhes"></span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+
+
+                    </table>
+
+                </div>
+            </div>
+
+        }
+
+
+    </div>
+
+
+
+
+
+}
+
