@@ -8,9 +8,10 @@
     <text>
          <input type="hidden" name="hUsuarioLogado" id="hUsuarioLogado" value="@UsuarioAtual.Id" />
          <ul class="nav navbar-nav navbar-right">
-            <li >
-                <a class="text-center text-info" href="/Manage/Index/@UsuarioAtual.Id"><span class="glyphicon glyphicon-user"></span>@saudacao</a>
-            </li>
+             <li>
+                 @*<a class="text-center text-info" href="/Manage/Index/@UsuarioAtual.Id"><span class="glyphicon glyphicon-user"></span>@saudacao</a>*@
+                 <a class="text-center text-info" href="/Funcionario/FichaCadastral/@UsuarioAtual.Id"><span class="glyphicon glyphicon-user"></span>@saudacao</a>
+             </li>
             <li >
                 <a class="text-center text-info" href="/Account/SignOut/"><span class="glyphicon glyphicon-log-out"></span> Sair</a>
             </li>

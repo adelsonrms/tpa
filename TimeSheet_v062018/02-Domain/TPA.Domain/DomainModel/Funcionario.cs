@@ -88,7 +88,13 @@ namespace TPA.Domain.DomainModel
         /// endereço do funcionário
         /// </summary>
         public virtual string Endereco { get; set; }
+        public virtual string CEP { get; set; }
+        public virtual string Bairro { get; set; }
+        public virtual string Cidade { get; set; }
+        public virtual string Estado { get; set; }
 
+        public virtual string DataNascimento { get; set; }
+        public virtual int SexoID { get; set; }
 
         #endregion
 

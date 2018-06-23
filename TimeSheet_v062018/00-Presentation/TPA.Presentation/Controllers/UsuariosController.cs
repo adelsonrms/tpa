@@ -1,23 +1,20 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Data;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using TPA.Domain.DomainModel;
 using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 using TFW.Domain;
+using TPA.Application;
+using TPA.Domain.DomainModel;
+using TPA.Presentation.App_Start;
 using TPA.Services.Seguranca;
 using TPA.ViewModel;
-using TPA.Application;
-using TPA.Infra.Data.Repository;
-using Microsoft.AspNet.Identity;
-using TPA.Presentation.App_Start;
-using System.Web;
-using Microsoft.AspNet.Identity.Owin;
-using System.Net;
-using TPA.Services;
-using AutoMapper;
 
 namespace TPA.Presentation.Controllers
 {

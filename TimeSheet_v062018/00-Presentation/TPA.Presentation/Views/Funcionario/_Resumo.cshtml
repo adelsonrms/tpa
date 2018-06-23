@@ -1,0 +1,26 @@
+﻿@model TPA.ViewModel.FichaCadastralViewModel
+
+<div id="ResumoUsuario" class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img alt="..." class="media-object" src="~/Content/Images/func_128.png"/>
+                    </a>
+                </div>
+                <div class="media-body cor_azul">
+                    <p id="cargo">
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 cor_azul">
+            <p>Matricula : @Html.ValueFor(m => m.Matricula)</p>
+            <p>Admissão : </p>
+            <p>Status : </p>
+            <p>Tempo de Casa :</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+﻿@using TPA.Comum
+@using TPA.Comum.Extensoes
+@model TPA.ViewModel.FichaCadastralViewModel
+
+<div id="TabInfo" class="tab-pane active">
+    <div class="form-edit">
+        <legend>
+            <h4 class="cor_titulos"><strong><span class="glyphicon glyphicon-user"></span>&nbsp;Identificação</strong></h4>
+        </legend>
+        <div class="container-fluid" id="cnt_identificacao">
+            <div class="row" id="ident_NomeEmail">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Nome, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", @placeholder = "Digite o nome" })
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Id, new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Id, new { @class = "form-control disabled", @placeholder = "Digite o nome", @disabled = "true" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailProfissional, "Email Corporativo", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.EmailProfissional, new { @class = "form-control", @placeholder = "Informe o email corporativo do funcionario" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailPessoal, "Email Pessoal", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.EmailPessoal, new { @class = "form-control", @placeholder = "Informe o email Pessoal do funcionario" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="ident_Documentos">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DataNascimento, "Data de Nascimento", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.DataNascimento, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="email">RG</label>
+                        <input class="form-control" type="email" name="email" id="Email2" placeholder="Digite o email" data-validate="required" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="Usuario">CPF</label>
+                        <input class="form-control" type="email" name="Usuario" id="Email3" placeholder="Digite o Usuario" data-validate="required" />
+                    </div>
+                </div>
+
+                <div class="control-group col-md-3">
+                    <label class="control-label" for="sexo">Sexo</label>
+                    <div class="Controls">
+                        <label class="radio-inline">
+                            @Html.RadioButton("Sexo", "M", Model.SexoID == Enuns.eSexo.Masculino.Value())
+                            Masculino
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButton("Sexo", "F", Model.SexoID == Enuns.eSexo.Feminino.Value())
+                            Feminino
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <legend>
+            <h4 class="cor_titulos"><strong><span class="glyphicon glyphicon-envelope"></span>&nbsp;Telefones</strong></h4>
+        </legend>
+        <div class="container-fluid" id="cnt_Telefones">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Telefone, "Tel. Fixo", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Telefone, new { @class = "form-control", @placeholder = "Telefone fixo" })
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Celular, "Celular", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Celular, new { @class = "form-control", @placeholder = "Telefone celular" })
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="Usuario">Tel. Comercial</label>
+                        <input class="form-control" type="email" name="Usuario" id="tel_comercial" placeholder="Telefone Comercial" data-validate="required" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="Usuario">Outros</label>
+                        <input class="form-control" type="email" name="Usuario" id="tel_outros" placeholder="Outro telefone" data-validate="required" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <legend id="Endereco">
+            <h4 class="cor_titulos"><strong><span class="glyphicon glyphicon-envelope"></span>&nbsp;Endereço</strong></h4>
+        </legend>
+        <div class="container-fluid" id="cnt_Endereco">
+            <div class="row" id="Endereco_Rua">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Celular, "Endereço", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Celular, new { @class = "form-control", @placeholder = "Rua/Av, Numero" })
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="Endereco_CEP">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CEP, "CEP", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.CEP, new { @class = "form-control", @placeholder = "Informe o CEP" })
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Bairro, "Bairro", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Bairro, new { @class = "form-control", @placeholder = "Informe o nome do Bairro" })
+                    </div>
+                </div>
+
+
+                <div class="col-md-5">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Cidade, "Cidade", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Cidade, new { @class = "form-control", @placeholder = "Informe a Cidade" })
+                    </div>
+                </div>
+
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Estado, "Estado", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Estado, new { @class = "form-control", @placeholder = "Informe o Estado" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -413,6 +413,7 @@
     <Compile Include="Controllers\AtestadoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FechamentoController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\ImportacaoPlanilhaAdminController.cs" />
     <Compile Include="Controllers\ImportacaoPlanilhaController.cs" />
     <Compile Include="Controllers\jsTree3Controller.cs" />
@@ -1023,6 +1024,13 @@
     <Content Include="Views\Shared\_jsTreeDemo.cshtml" />
     <Content Include="Views\jsTree3\Demo.cshtml" />
     <Content Include="Views\jsTree3\AJAXDemo.cshtml" />
+    <Content Include="Views\Funcionario\FichaCadastral.cshtml" />
+    <Content Include="Views\Funcionario\_Resumo.cshtml" />
+    <Content Include="Views\Funcionario\_TabContratacao.cshtml" />
+    <Content Include="Views\Funcionario\_TabDoc.cshtml" />
+    <Content Include="Views\Funcionario\_TabEscolaridade.cshtml" />
+    <Content Include="Views\Funcionario\_TabEventos.cshtml" />
+    <Content Include="Views\Funcionario\_TabInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1047,6 +1055,10 @@
     <ProjectReference Include="..\..\03-Infra\TPA.Infra\TPA.Infra.csproj">
       <Project>{7932bdda-7218-47ae-9add-bdae4bd3aead}</Project>
       <Name>TPA.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\04-Comum\TPA.Comum\TPA.Comum.csproj">
+      <Project>{771911b4-ba03-44a5-bef4-8bf6a04c0954}</Project>
+      <Name>TPA.Comum</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\04-Comum\TPA.Framework\TPA.Framework.csproj">
       <Project>{9a08406c-b853-4987-863b-76f5a927295e}</Project>

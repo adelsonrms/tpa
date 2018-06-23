@@ -131,7 +131,8 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FuncionarioNomeOuLogin)
+                        <a href="@(Url.Action("FichaCadastral","Funcionario", new { id = item.Id }))">@Html.DisplayFor(modelItem => item.FuncionarioNomeOuLogin)</a>
+                        
                     </td>
                     <td>
                         <button type="button"  value="@item.Id" class="btn btn-danger btResetar cancel" >Resetar</button>

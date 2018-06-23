@@ -262,6 +262,7 @@
     <Compile Include="ErroViewModel.cs" />
     <Compile Include="FechamentoIndexViewModel.cs" />
     <Compile Include="FechamentoViewModel.cs" />
+    <Compile Include="Funcionarios\FichaCadastralViewModel.cs" />
     <Compile Include="GerenciarAcoesViewModel.cs" />
     <Compile Include="ImportacaoPlanilhaViewModel.cs" />
     <Compile Include="LancamentoEmLoteModel.cs" />

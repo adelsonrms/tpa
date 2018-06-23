@@ -1,0 +1,69 @@
+﻿<!-- Instancia do modelo no qual terá os dados -->
+@model TPA.ViewModel.FichaCadastralViewModel
+
+@{
+    ViewBag.Title = "FichaCadastral";
+}
+
+
+<div class="container">
+    <fieldset id="Campos_Form">
+        <legend><h2 class="cor_azul"><strong><span class="glyphicon glyphicon-user"></span>&nbsp;@Html.ValueFor(m => m.Nome)</strong></h2></legend>
+        @{Html.RenderPartial("_Resumo");}
+        <legend><h3 class="cor_azul"><strong></strong></h3></legend>
+        <br />
+        <div id="Linha_Botoes_Tab"  class="row">
+            <div class="col-xs-12">
+                <strong><ul class="nav nav-tabs cor_azul">
+                    <li class="active"><a href="#TabInfo"          id="info"       data-toggle="tab" pilltype="pill">Informações</a></li>
+                    <li><a href="#TabDoc"           id="doc"        data-toggle="tab" pilltype="pill">Documentos</a></li>
+                    <li><a href="#TabContratacao"   id="Contrat"    data-toggle="tab" pilltype="pill">Contratação</a></li>
+                    <li><a href="#TabEscolaridade"  id="Escolar"    data-toggle="tab" pilltype="pill">Beneficios</a></li>
+                    <li><a href="#TabHistorico"     id="hist"       data-toggle="tab" pilltype="pill">Eventos <span id="qtdItems" class="badge"> 4 </span></a></li>
+                </ul>
+                    </strong>
+            </div>
+        </div>
+        <div id="Linha_Conteudo" class="row">
+            <div id="Colunas_Conteudo" class="col-md-10">
+                <!--
+                    Classe 'tab-content' marca a Div devidamente construida como o conteudo das guias que estarao vinculadas com a 'nav' acima
+                    Classe 'tab-pane' marcada em cada Div, indica que a div representa a tab especificada pelo ID e vinculada com o link acima--
+                    -->
+                <div id="conteudoTab" class="tab-content cor_azul">
+                    @{Html.RenderPartial("_TabInfo");}
+                    @{Html.RenderPartial("_TabDoc");}
+                    @{Html.RenderPartial("_TabContratacao");}
+                    @{Html.RenderPartial("_TabEventos");}
+                    @{Html.RenderPartial("_TabEscolaridade");}
+                </div>
+            </div>
+        </div> <!--Conteudo-->
+    </fieldset>
+    <br />
+    <button class="btn btn-primary" type="submit">Salvar</button>
+</div>
+
+</div> 
+
+<!--
+ <script>
+        $('#txtNome').val("Adelson Rosendo Marques da Silva");
+        $('#txtEmail').val("adelson@tecnun.com.br");
+        $('#txtUsuario').val("adelson@outlook.com.br");
+
+        document.getElementById("NomeReduzido").innerText = "Adelson Silva";
+        document.getElementById("cargo").innerText = "Analista de Sistemas";
+  </script>
+-->
+
+<script>
+    $(document).ready(function () {
+        var tb = $('#tblEventos').DataTable({
+            "language": {
+                "url": "http://localhost:54852/Content/DataTable/language/Portuguese.json"
+            }
+        });
+    });
+    document.getElementById("qtdItems").innerText = document.getElementById('tblEventos').rows.length - 1;
+</script>
